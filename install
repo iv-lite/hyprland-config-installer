@@ -2,7 +2,7 @@
 
 ./fetcher
 
-configurations=($(ls ./configurations))
+configurations=($(ls ./.config))
 
 deploy() {
     cp -r "./configurations/$1" "${HOME}/.config/$1"
