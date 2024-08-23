@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+./fetcher
+
+configurations=($(ls ./configurations))
+
+deploy() {
+    cp -r "./configurations/$1" "${HOME}/.config/$1"
+    echo "${HOME}/.config/$1 deployed"
+}
+
+./uninstall
+
+sudo systemctl disable --now gdm.service
+sudo systemctl enable --now greetd.service
+
+for configuration in ${configurations[*]}; do
+    deploy $configuration
+done
+
+sudo cp -r ./services/greetd /etc/
+sudo chown -R greeter:greeter /etc/greetd
+echo "greetd deployed"
