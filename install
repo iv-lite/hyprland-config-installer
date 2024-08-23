@@ -11,9 +11,6 @@ deploy() {
 
 ./uninstall
 
-sudo systemctl disable --now gdm.service
-sudo systemctl enable --now greetd.service
-
 for configuration in ${configurations[*]}; do
     deploy $configuration
 done
@@ -21,3 +18,5 @@ done
 sudo cp -r ./services/greetd /etc/
 sudo chown -R greeter:greeter /etc/greetd
 echo "greetd deployed"
+
+sudo systemctl enable --now greetd.service --force
