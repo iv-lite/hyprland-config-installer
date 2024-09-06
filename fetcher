@@ -18,6 +18,8 @@ paru -S --noconfirm \
     hyprlock \
     hyprpaper \
     hyprpicker \
+    wlr-brightness \
+    solaar \
     waybar \
     grim \
     slurp \
