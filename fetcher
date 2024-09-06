@@ -23,22 +23,33 @@ paru -S --noconfirm \
     slurp \
     wlogout \
     wl-clipboard \
+    ttf-font-awesome-5 \
     mako \
+    blueman \
+    gbm \
+    hyprland-protocols \
     foot \
     blueman \
+    wayland-client \
+    wayland-protocols \
+    xdg-desktop-portal \
     xdg-desktop-portal-hyprland \
     wl-clipboard \
     network-manager-applet \
     cliphist \
     solaar \
     tofi \
+    thunar \
+    foot \
+    direnv \
+    visual-studio-code-bin \
     greetd \
     greetd-regreet \
     cmake \
     meson \
     cpio \
     cliphist \
-    arc-theme \
+    arc-gtk-theme-git \
     papirus-icon-theme \
     waybar \
     pavucontrol
