@@ -23,7 +23,8 @@ paru -S --noconfirm \
     slurp \
     wlogout \
     wl-clipboard \
-    ttf-font-awesome-5 \
+    ttf-font-awesome  \
+    ttf-roboto \
     mako \
     blueman \
     gbm \
@@ -55,8 +56,4 @@ paru -S --noconfirm \
     arc-gtk-theme-git \
     papirus-icon-theme \
     waybar \
-    pavucontrol \
-    noto-fonts \
-    noto-fonts-cjk \
-    noto-fonts-emoji \
-    ttf-roboto
+    pavucontrol
