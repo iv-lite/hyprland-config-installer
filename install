@@ -2,10 +2,10 @@
 
 ./fetcher
 
-configurations=($(ls ./.config))
+configurations=($(ls ./hyprland))
 
 deploy() {
-    cp -r "./configurations/$1" "${HOME}/.config/$1"
+    cp -r "./hyprland/$1" "${HOME}/.config/$1"
     echo "${HOME}/.config/$1 deployed"
 }
 
@@ -19,4 +19,4 @@ sudo cp -r ./greetd /etc/
 sudo chown -R greeter:greeter /etc/greetd
 echo "greetd deployed"
 
-sudo systemctl enable --now greetd.service --force
+Hyprland --config installer/hyprland.conf

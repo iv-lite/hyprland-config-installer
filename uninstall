@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-configurations=( $(ls ./configurations) )
+configurations=($(ls ./hyprland))
 
 purge() {
     if [ -d "${HOME}/.config/$1" ]; then
@@ -16,3 +16,5 @@ done
 
 sudo rm -r /etc/greetd
 echo "/etc/greetd removed"
+
+sudo systemctl disable --now greetd.service

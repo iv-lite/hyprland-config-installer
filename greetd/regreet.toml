@@ -1,6 +1,6 @@
 [background]
 # Path to the background image
-path = "/etc/nigxos/services/greetd/login.background.jpg"
+path = "/etc/greetd/login.background.jpg"
 fit = "Cover"
 
 [GTK]
@@ -14,14 +14,14 @@ cursor_theme_name = "Adwaita"
 font_name = "Cantarell 16"
 
 # Icon theme name
-icon_theme_name = "Qogir-dark"
+icon_theme_name = "Papirus-Dark"
 
 # GTK theme name
 theme_name = "Arc-Dark"
 
 [commands]
-reboot = [ "systemctl", "reboot" ]
-poweroff = [ "systemctl", "poweroff" ]
+reboot = ["systemctl", "reboot"]
+poweroff = ["systemctl", "poweroff"]
 
 [appearance]
 # The message that initially displays on startup
