@@ -35,6 +35,7 @@ paru -S --noconfirm \
     polkit \
     polkit-gnome \
     xdg-desktop-portal \
+    xdg-desktop-portal-gnome \
     xdg-desktop-portal-hyprland \
     wl-clipboard \
     network-manager-applet \
