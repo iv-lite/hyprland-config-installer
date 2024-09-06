@@ -39,6 +39,7 @@ paru -S --noconfirm \
     qt5-wayland \
     qt6-wayland \
     xdg-desktop-portal \
+    xdg-desktop-portal-gtk \
     xdg-desktop-portal-gnome \
     xdg-desktop-portal-hyprland \
     wl-clipboard \
