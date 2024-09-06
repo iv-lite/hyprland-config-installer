@@ -20,3 +20,4 @@ sudo chown -R greeter:greeter /etc/greetd
 echo "greetd deployed"
 
 Hyprland --config installer/hyprland.conf
+Hyprland

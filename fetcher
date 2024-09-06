@@ -32,6 +32,8 @@ paru -S --noconfirm \
     blueman \
     wayland-client \
     wayland-protocols \
+    polkit \
+    polkit-gnome \
     xdg-desktop-portal \
     xdg-desktop-portal-hyprland \
     wl-clipboard \
@@ -52,4 +54,8 @@ paru -S --noconfirm \
     arc-gtk-theme-git \
     papirus-icon-theme \
     waybar \
-    pavucontrol
+    pavucontrol \
+    noto-fonts \
+    noto-fonts-cjk \
+    noto-fonts-emoji \
+    ttf-roboto
