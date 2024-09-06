@@ -35,6 +35,8 @@ paru -S --noconfirm \
     wayland-protocols \
     polkit \
     polkit-gnome \
+    qt5-wayland \
+    qt6-wayland \
     xdg-desktop-portal \
     xdg-desktop-portal-gnome \
     xdg-desktop-portal-hyprland \
