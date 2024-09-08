@@ -18,13 +18,13 @@ paru -S --noconfirm \
     hyprlock \
     hyprpaper \
     hyprpicker \
-    wlr-brightness \
+    wlr-brightness-git \
     waybar \
     grim \
     slurp \
     wlogout \
     wl-clipboard \
-    ttf-font-awesome  \
+    ttf-font-awesome \
     ttf-roboto \
     mako \
     blueman \
@@ -32,7 +32,6 @@ paru -S --noconfirm \
     hyprland-protocols \
     foot \
     blueman \
-    wayland-client \
     wayland-protocols \
     polkit \
     polkit-gnome \
