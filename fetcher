@@ -13,6 +13,7 @@ if ! command -v paru &>/dev/null; then
 fi
 
 paru -S --noconfirm \
+    mkinitcpio-firmware \
     jq \
     pamixer \
     playerctl \
