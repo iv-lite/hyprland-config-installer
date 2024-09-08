@@ -5,16 +5,17 @@ configurations=($(ls ./hyprland))
 purge() {
     if [ -d "${HOME}/.config/$1" ]; then
         rm -rf "${HOME}/.config/$1"
+        echo "${HOME}/.config/$1 removed"
     fi
-
-    echo "${HOME}/.config/$1 removed"
 }
 
 for configuration in ${configurations[*]}; do
     purge $configuration
 done
 
-sudo rm -r /etc/greetd
-echo "/etc/greetd removed"
+if [ -d /etc/greetd ]; then
+    sudo rm -r /etc/greetd
+    echo "/etc/greetd removed"
+fi
 
 sudo systemctl disable --now greetd.service
