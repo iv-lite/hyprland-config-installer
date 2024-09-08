@@ -30,4 +30,3 @@ newgrp
 if [$(systemctl is-active --quiet greetd.service) != "active" ]; then
     sudo systemctl enable greetd.service --force
 fi
-reboot
