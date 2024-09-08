@@ -7,7 +7,7 @@ if ! command -v paru &>/dev/null; then
     if [ -d storage/paru ]; then
         rm -rf storage/paru
     fi
-    git clone https://aur.archlinux.org/paru.git storage/
+    git clone https://aur.archlinux.org/paru.git storage/paru
     cd storage/paru
     makepkg -si
 fi
