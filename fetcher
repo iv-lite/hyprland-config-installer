@@ -47,7 +47,7 @@ paru -S --noconfirm \
     solaar \
     tofi \
     thunar \
-    foot \
+    wezterm-git \
     direnv \
     visual-studio-code-bin \
     greetd \
