@@ -22,5 +22,8 @@ sudo cp -r ./greetd /etc/
 sudo chown -R greeter:greeter /etc/greetd
 echo "greetd deployed"
 
+sudo usermod -aG i2c $USER
+
 Hyprland --config installer/hyprland.conf
+newgrp
 sudo systemctl enable --now greetd.service --force

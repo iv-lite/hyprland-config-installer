@@ -18,7 +18,8 @@ paru -S --noconfirm \
     hyprlock \
     hyprpaper \
     hyprpicker \
-    wlr-brightness-git \
+    i2c-tools \
+    ddcutil \
     waybar \
     grim \
     slurp \
