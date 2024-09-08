@@ -27,3 +27,4 @@ sudo usermod -aG i2c $USER
 Hyprland --config installer/hyprland.conf
 newgrp
 sudo systemctl enable --now greetd.service --force
+reboot
