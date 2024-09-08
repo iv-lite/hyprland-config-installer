@@ -14,7 +14,7 @@ fi
 
 paru -S --noconfirm \
     jq \
-    hyprland \
+    hyprland-git \
     hypridle \
     hyprlock \
     hyprpaper \
