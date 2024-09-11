@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+./paru-fetcher
+
+. ./packages-list
+
+paru -Rc --noconfirm "${packages}"

@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-basepath="$(dirname $0)"
-cd $basepath
-
 ./fetcher
+
+basepath="$(dirname $0)/.."
+cd $basepath
 
 configurations=($(ls ./hyprland))
 
@@ -18,15 +18,18 @@ for configuration in ${configurations[*]}; do
     deploy $configuration
 done
 
-sudo cp -r ./greetd /etc/
+sudo cp -r ./etc/greetd /etc/
 sudo chown -R greeter:greeter /etc/greetd
 echo "greetd deployed"
+
+sudo cp -r ./etc/sdboot-manage.conf /etc/
+echo "sdboot-manage.conf deployed"
 
 sudo usermod -aG i2c $USER
 
 Hyprland --config installer/hyprland.conf
 newgrp
 
-if [$(systemctl is-active --quiet greetd.service) != "active" ]; then
-    sudo systemctl enable greetd.service --force
+if [$(systemctl is-enabled greetd.service) != "enabled" ]; then
+    sudo systemctl enable --now greetd.service --force
 fi

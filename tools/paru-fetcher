@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+paru_storage_path="../storage/paru"
+if ! command -v paru &>/dev/null; then
+    sudo pacman -Syu --noconfirm
+    sudo pacman -S --needed --noconfirm base-devel git
+
+    if [ -d $paru_storage_path ]; then
+        rm -rf $paru_storage_path
+    fi
+    git clone https://aur.archlinux.org/paru.git $paru_storage_path
+    cd $paru_storage_path
+    makepkg -si
+fi

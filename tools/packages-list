@@ -1,18 +1,6 @@
 #!/usr/bin/env bash
 
-sudo pacman -Syu --noconfirm
-sudo pacman -S --needed --noconfirm base-devel git
-
-if ! command -v paru &>/dev/null; then
-    if [ -d storage/paru ]; then
-        rm -rf storage/paru
-    fi
-    git clone https://aur.archlinux.org/paru.git storage/paru
-    cd storage/paru
-    makepkg -si
-fi
-
-paru -S --noconfirm \
+export packages="\
     mkinitcpio-firmware \
     jq \
     pamixer \
@@ -66,4 +54,5 @@ paru -S --noconfirm \
     arc-gtk-theme \
     papirus-icon-theme \
     waybar \
-    pavucontrol
+    pavucontrol \
+    systemd-boot-manager"
