@@ -35,6 +35,7 @@ paru -S --noconfirm \
     blueman \
     gbm \
     hyprland-protocols \
+    wezterm \
     foot \
     blueman \
     wayland-protocols \
