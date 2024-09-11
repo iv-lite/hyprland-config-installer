@@ -1,46 +1,10 @@
 #!/usr/bin/env bash
 
-basepath="$(dirname $0)/.."
+basepath="$(dirname $0)"
 cd $basepath
 
-configurations=($(ls ./hyprland))
+./uninstall
 
-deploy() {
-    cp -r "./hyprland/$1" "${HOME}/.config/$1"
-    echo "${HOME}/.config/$1 deployed"
-}
+./fetcher
 
-if command -v Hyprland &>/dev/null; then
-    echo "A previous installation of Hyprland as been found."
-    read -r -p "Do you want to uninstall it ? [y/N] " response
-    if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]; then
-        ./tools/uninstall
-    fi
-fi
-
-./tools/fetcher
-
-for configuration in ${configurations[*]}; do
-    deploy $configuration
-done
-
-sudo cp -r ./etc/greetd /etc/
-sudo chown -R greeter:greeter /etc/greetd
-echo "greetd deployed"
-
-sudo cp -r ./etc/sdboot-manage.conf /etc/
-echo "sdboot-manage.conf deployed"
-
-sudo usermod -aG i2c $USER
-
-Hyprland --config installer/hyprland.conf
-newgrp
-
-if [$(systemctl is-enabled greetd.service) != "enabled" ]; then
-    sudo systemctl enable --now greetd.service --force
-fi
-
-read -r -p "Do you want to reboot ? [y/N] " response
-if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]; then
-    reboot
-fi
+./deploy

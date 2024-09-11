@@ -1,32 +1,11 @@
 #!/usr/bin/env bash
 
-basepath="$(dirname $0)/.."
+basepath="$(dirname $0)"
 cd $basepath
 
-configurations=($(ls ./hyprland))
-
-purge() {
-    if [ -d "${HOME}/.config/$1" ]; then
-        rm -rf "${HOME}/.config/$1"
-        echo "${HOME}/.config/$1 removed"
-    fi
-}
-
-for configuration in ${configurations[*]}; do
-    purge $configuration
-done
-
-if [ -d /etc/greetd ]; then
-    sudo rm -r /etc/greetd
-    echo "/etc/greetd removed"
-fi
-
-if [ -d /etc/sdboot-manage.conf ]; then
-    sudo rm -r /etc/sdboot-manage.conf
-    echo "/etc/sdboot-manage.conf removed"
-fi
+./revert
 
 read -r -p "Do you want to clean packages ? [y/N] " response
 if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]; then
-    ./tools/cleaner
+    ./cleaner
 fi
