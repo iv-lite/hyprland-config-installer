@@ -12,7 +12,13 @@ deploy() {
     echo "${HOME}/.config/$1 deployed"
 }
 
-./uninstall
+if ! command -v Hyprland &>/dev/null; then
+    echo "A previous installation of Hyprland as been found."
+    read -r -p "Do you want to uninstall it ? [y/N] " response
+    if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]; then
+        ./uninstall
+    fi
+fi
 
 for configuration in ${configurations[*]}; do
     deploy $configuration
