@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-./fetcher
-
 basepath="$(dirname $0)/.."
 cd $basepath
+
+./tools/fetcher
 
 configurations=($(ls ./hyprland))
 
@@ -12,11 +12,11 @@ deploy() {
     echo "${HOME}/.config/$1 deployed"
 }
 
-if ! command -v Hyprland &>/dev/null; then
+if command -v Hyprland &>/dev/null; then
     echo "A previous installation of Hyprland as been found."
     read -r -p "Do you want to uninstall it ? [y/N] " response
     if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]; then
-        ./uninstall
+        ./tools/uninstall
     fi
 fi
 

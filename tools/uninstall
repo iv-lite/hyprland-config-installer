@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+basepath="$(dirname $0)/.."
+cd $basepath
+
 configurations=($(ls ./hyprland))
 
 purge() {
@@ -25,5 +28,5 @@ fi
 
 read -r -p "Do you want to clean packages ? [y/N] " response
 if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]; then
-    ./cleaner
+    ./tools/cleaner
 fi
