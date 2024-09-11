@@ -3,8 +3,6 @@
 basepath="$(dirname $0)/.."
 cd $basepath
 
-./tools/fetcher
-
 configurations=($(ls ./hyprland))
 
 deploy() {
@@ -19,6 +17,8 @@ if command -v Hyprland &>/dev/null; then
         ./tools/uninstall
     fi
 fi
+
+./tools/fetcher
 
 for configuration in ${configurations[*]}; do
     deploy $configuration

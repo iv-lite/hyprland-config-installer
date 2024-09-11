@@ -7,4 +7,4 @@ cd $basepath
 
 . ./packages-list
 
-paru -Rc --noconfirm "${packages}"
+paru -Rc --noconfirm $packages

@@ -5,7 +5,7 @@ export packages="\
     jq \
     pamixer \
     playerctl \
-    hyprland-git \
+    hyprland \
     hypridle \
     hyprlock \
     hyprpaper \
@@ -23,10 +23,9 @@ export packages="\
     blueman \
     gbm \
     hyprland-protocols \
-    wezterm \
+    wayland-protocols \
     foot \
     blueman \
-    wayland-protocols \
     polkit \
     polkit-gnome \
     qt5-wayland \
