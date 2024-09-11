@@ -39,3 +39,8 @@ newgrp
 if [$(systemctl is-enabled greetd.service) != "enabled" ]; then
     sudo systemctl enable --now greetd.service --force
 fi
+
+read -r -p "Do you want to reboot ? [y/N] " response
+if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]; then
+    reboot
+fi
