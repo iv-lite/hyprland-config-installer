@@ -3,6 +3,10 @@
 basepath="$(dirname $0)"
 cd $basepath
 
+if ! command -v Hyprland &>/dev/null; then
+    pkill Hyprland
+fi
+
 ./uninstall
 
 ./fetcher
