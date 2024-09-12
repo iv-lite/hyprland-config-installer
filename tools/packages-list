@@ -54,5 +54,4 @@ export packages="\
     arc-gtk-theme \
     papirus-icon-theme \
     waybar \
-    pavucontrol \
-    systemd-boot-manager"
+    pavucontrol"

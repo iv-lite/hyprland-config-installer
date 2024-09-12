@@ -20,8 +20,3 @@ if [ -d /etc/greetd ]; then
     sudo rm -r /etc/greetd
     echo "/etc/greetd removed"
 fi
-
-if [ -d /etc/sdboot-manage.conf ]; then
-    sudo rm -r /etc/sdboot-manage.conf
-    echo "/etc/sdboot-manage.conf removed"
-fi
