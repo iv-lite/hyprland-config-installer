@@ -25,6 +25,7 @@ export packages="\
     hyprland-protocols \
     wayland-protocols \
     foot \
+    bluez \
     blueman \
     polkit \
     polkit-gnome \
