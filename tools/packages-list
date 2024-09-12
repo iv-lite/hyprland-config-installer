@@ -18,6 +18,7 @@ export packages="\
     wlogout \
     wl-clipboard \
     ttf-font-awesome \
+    hack-nf-git \
     ttf-roboto \
     mako \
     blueman \
