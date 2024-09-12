@@ -19,6 +19,7 @@ sudo chown -R greeter:greeter /etc/greetd
 echo "greetd deployed"
 
 sudo cp -r ./etc/sdboot-manage.conf /etc/
+sudo sdboot-manage update
 echo "sdboot-manage.conf deployed"
 
 sudo usermod -aG i2c $USER
