@@ -14,7 +14,6 @@ export packages="\
     hyprpaper \
     hyprpicker \
     i2c-tools \
-    ddcutil \
     waybar \
     grim \
     slurp \
@@ -58,4 +57,8 @@ export packages="\
     arc-gtk-theme \
     papirus-icon-theme \
     waybar \
+    glib2-devel \
+    dbus \
+    wlr-protocols \
+    wlr-brightness-git \
     pavucontrol"
