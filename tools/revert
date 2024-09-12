@@ -20,3 +20,8 @@ if [ -d /etc/greetd ]; then
     sudo rm -r /etc/greetd
     echo "/etc/greetd removed"
 fi
+
+if [ -f /etc/modules-load.d/ddcci_backlight.conf ]; then
+    sudo rm /etc/modules-load.d/ddcci_backlight.conf
+    echo "ddcci_backlight kernel module removed"
+fi

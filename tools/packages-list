@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
 
 export packages="\
+    dkms \
+    linux-headers \
     mkinitcpio-firmware \
+    ddcci-driver-linux-dkms \
     jq \
     pamixer \
     playerctl \
