@@ -61,4 +61,5 @@ export packages="\
     dbus \
     wlr-protocols \
     wlr-brightness-git \
+    cava \
     pavucontrol"
