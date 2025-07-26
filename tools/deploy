@@ -3,10 +3,10 @@
 basepath="$(dirname $0)/.."
 cd $basepath
 
-configurations=($(ls ./hyprland))
+configurations=($(ls ./configurations))
 
 deploy() {
-    cp -r "./hyprland/$1" "${HOME}/.config/$1"
+    cp -r "./configurations/$1" "${HOME}/.config/$1"
     echo "${HOME}/.config/$1 deployed"
 }
 
