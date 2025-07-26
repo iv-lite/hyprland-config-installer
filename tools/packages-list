@@ -8,6 +8,8 @@ export packages="\
     jq \
     pamixer \
     playerctl \
+    uwsm \
+    wayland-pipewire-idle-inhibit \
     hyprland \
     hypridle \
     hyprlock \
@@ -42,10 +44,10 @@ export packages="\
     network-manager-applet \
     cliphist \
     solaar \
-    tofi \
+    wofi \
     thunar \
     foot \
-    wezterm \
+    ghostty \
     direnv \
     visual-studio-code-bin \
     greetd \
