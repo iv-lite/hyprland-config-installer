@@ -46,6 +46,7 @@ export packages="\
     cliphist \
     solaar \
     wofi \
+    tofi \
     thunar \
     foot \
     ghostty \
