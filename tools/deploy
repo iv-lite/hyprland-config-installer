@@ -30,6 +30,11 @@ if [ $status != "enabled" ]; then
     sudo systemctl enable greetd.service --force
 fi
 
+status=$(systemctl is-enabled dbus-broker.service)
+if [ $status != "enabled" ]; then
+    sudo systemctl enable dbus-broker.service --force
+fi
+
 read -r -p "Do you want to reboot ? [y/N] " response
 if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]; then
     reboot

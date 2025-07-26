@@ -9,6 +9,7 @@ export packages="\
     pamixer \
     playerctl \
     uwsm \
+    dbus-broker \
     wayland-pipewire-idle-inhibit \
     hyprland \
     hypridle \
