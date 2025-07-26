@@ -3,7 +3,7 @@
 basepath="$(dirname $0)/.."
 cd $basepath
 
-configurations=($(ls ./hyprland))
+configurations=($(ls ./configurations))
 
 purge() {
     if [ -d "${HOME}/.config/$1" ]; then
