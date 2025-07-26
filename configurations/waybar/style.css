@@ -2,7 +2,10 @@
     /* `otf-font-awesome` is required to be installed for icons */
     font-family: FontAwesome, Roboto;
     font-size: 1.25rem;
-    min-height: 3rem;
+    min-height: 0;
+    padding: .25rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
 }
 
 window#waybar {
@@ -11,6 +14,8 @@ window#waybar {
     color: #ffffff;
     transition-property: background-color;
     transition-duration: .5s;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
 }
 
 window#waybar.hidden {
@@ -96,13 +101,13 @@ button:hover {
 #scratchpad,
 #power-profiles-daemon,
 #mpd {
-    margin: 0 1rem;
+    margin: 0 .1rem;
     color: #ffffff;
 }
 
 #window,
 #workspaces {
-    margin: 0 1rem;
+    margin: 0 .2rem;
 }
 
 /* If workspaces is the leftmost module, omit left margin */
@@ -222,6 +227,11 @@ label:focus {
 
 #custom-media.custom-vlc {
     background-color: transparent;
+}
+
+#custom-power {
+    font-size: 2rem;
+    min-height: 1rem;
 }
 
 #temperature {
