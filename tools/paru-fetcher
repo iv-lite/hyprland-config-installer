@@ -10,5 +10,5 @@ if ! command -v paru &>/dev/null; then
     fi
     git clone https://aur.archlinux.org/paru.git $paru_storage_path
     cd $paru_storage_path
-    makepkg -si
+    makepkg -si --noconfirm
 fi
