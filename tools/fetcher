@@ -8,3 +8,10 @@ cd $basepath
 . ./packages-list
 
 paru -S --noconfirm $packages
+
+read -r -p "Do you want to install amdgpu hardware audio/video decoding ? [y/N] " response
+if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]; then
+    . ./amd-va-packages-list
+    paru -S --noconfirm $amd_va_packages
+    echo "Hardware Audio/Video acceleration enabled !"
+fi

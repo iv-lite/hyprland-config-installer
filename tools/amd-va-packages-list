@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+export amd_va_packages="\
+    mesa vulkan-radeon libvdpau-va-gl libva-utils \
+    ffmpeg \
+    gstreamer gst-libav gst-plugin-pipewire gst-plugin-va \
+    qt6-wayland \
+    "
