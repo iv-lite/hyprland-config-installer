@@ -95,13 +95,8 @@
   },
   "disk": {
     "interval": 30,
-    "format": "{percentage_used}% 🖴"
+    "format": "{percentage_used}% "
   },
-  // "backlight": {
-  //   "device": "acpi_video1",
-  //   "format": "{percent}% {icon}",
-  //   "format-icons": ["", ""]
-  // },
   "battery": {
     "states": {
       // "good": 95,
