@@ -1,4 +1,3 @@
-hyprpm update --force
-hyprpm add https://github.com/Duckonaut/split-monitor-workspaces --force
-hyprpm enable split-monitor-workspaces --force
-hyprpm reload --force
+hyprpm update
+hyprpm add https://github.com/shezdy/hyprsplit
+hyprpm enable hyprsplit
