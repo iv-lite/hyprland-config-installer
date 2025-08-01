@@ -53,6 +53,7 @@ export packages="\
     ghostty \
     direnv \
     gnome-keyring \
+    gcr-4 \
     visual-studio-code-bin \
     greetd \
     greetd-regreet \
