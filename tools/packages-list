@@ -69,4 +69,7 @@ export packages="\
     wlr-protocols \
     wlr-brightness-git \
     cava \
-    pavucontrol"
+    pavucontrol\
+    clamtk \
+    thunar-sendto-clamtk \
+    "
