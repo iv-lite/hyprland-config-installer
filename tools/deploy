@@ -15,6 +15,7 @@ for configuration in ${configurations[*]}; do
 done
 
 sudo cp -r ./etc/greetd /etc/
+sudo cp -r ./etc/pam.d/greetd /etc/pam.d/greetd
 sudo chown -R greeter:greeter /etc/greetd
 echo "greetd deployed"
 
