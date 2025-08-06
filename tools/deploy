@@ -41,6 +41,11 @@ if [ $status != "enabled" ]; then
     sudo systemctl enable dbus-broker.service --force
 fi
 
+status=$(systemctl is-enabled bluetooth.service)
+if [ $status != "enabled" ]; then
+    sudo systemctl enable bluetooth.service --force
+fi
+
 status=$(systemctl is-enabled wayland-pipewire-idle-inhibit.service)
 if [ $status != "enabled" ]; then
     systemctl --user enable wayland-pipewire-idle-inhibit.service --now
