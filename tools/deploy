@@ -19,6 +19,9 @@ sudo cp -r ./etc/pam.d/greetd /etc/pam.d/greetd
 sudo chown -R greeter:greeter /etc/greetd
 echo "greetd deployed"
 
+cp ./vscode/argv.json ${HOME}/.vscode/argv.json
+echo "vscode configurated with gnome-keyring"
+
 sudo cp -r ./etc/modules-load.d/ddcci_backlight.conf /etc/modules-load.d/
 echo "ddcci_backlight kernel module deployed"
 
