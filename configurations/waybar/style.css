@@ -2,19 +2,18 @@
     font-family: "FontAwesome", "Noto Sans", "Noto Sans CJK SC", "Noto Sans CJK TC", "Noto Sans CJK JP", "Noto Sans CJK KR", sans-serif;
     font-size: 1.25rem;
     min-height: 0;
-    padding: .25rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding: .5rem;
 }
 
 window#waybar {
     background-color: rgba(43, 48, 59, 0.5);
-    border-bottom: 3px solid rgba(100, 114, 125, 0.5);
+    /* border-bottom: 3px solid rgba(89, 89, 89, 0.667); */
+    border-bottom: 3px solid rgba(89, 121, 156, 0.702);
     color: #ffffff;
     transition-property: background-color;
     transition-duration: .5s;
-    padding-top: .5rem;
-    padding-bottom: .5rem;
+    padding-top: .3rem;
+    padding-bottom: .3rem;
 }
 
 window#waybar.hidden {
