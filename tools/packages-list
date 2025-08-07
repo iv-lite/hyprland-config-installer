@@ -24,6 +24,7 @@ export packages="\
     wlogout \
     wl-clipboard \
     ttf-font-awesome \
+    ttf-roboto-mono \
     hack-nf-git \
     ttf-roboto \
     mako \
