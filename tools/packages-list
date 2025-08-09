@@ -46,7 +46,7 @@ export packages="\
     wl-clipboard \
     network-manager-applet \
     cliphist \
-    solaar \
+    logiops \
     wofi \
     tofi \
     thunar \

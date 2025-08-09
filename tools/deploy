@@ -16,6 +16,7 @@ done
 
 sudo cp -r ./etc/greetd /etc/
 sudo cp -r ./etc/pam.d/greetd /etc/pam.d/greetd
+sudo cp ./etc/logid.cfg /etc/logid.cfg
 sudo chown -R greeter:greeter /etc/greetd
 echo "greetd deployed"
 
@@ -53,6 +54,11 @@ fi
 status=$(systemctl is-enabled wayland-pipewire-idle-inhibit.service)
 if [ $status != "enabled" ]; then
     systemctl --user enable wayland-pipewire-idle-inhibit.service --now
+fi
+
+status=$(systemctl is-enabled logid.service)
+if [ $status != "enabled" ]; then
+    sudo systemctl enable logid.service --force
 fi
 
 read -r -p "Do you want to reboot ? [y/N] " response
