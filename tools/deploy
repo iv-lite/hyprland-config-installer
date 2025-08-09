@@ -50,9 +50,14 @@ if [ $status != "enabled" ]; then
     sudo systemctl enable bluetooth.service --force
 fi
 
+status=$(systemctl is-enabled hyprshell.service)
+if [ $status != "enabled" ]; then
+    systemctl --user enable --now hyprshell.service
+fi
+
 status=$(systemctl is-enabled wayland-pipewire-idle-inhibit.service)
 if [ $status != "enabled" ]; then
-    systemctl --user enable wayland-pipewire-idle-inhibit.service --now
+    systemctl --user enable --now wayland-pipewire-idle-inhibit.service
 fi
 
 read -r -p "Do you want to reboot ? [y/N] " response

@@ -73,4 +73,5 @@ export packages="\
     pavucontrol\
     clamtk \
     thunar-sendto-clamtk \
+    hyprshell \
     "
