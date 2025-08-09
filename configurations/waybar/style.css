@@ -99,6 +99,7 @@ button:hover {
 #mpd {
     margin: 0 .2rem;
     color: #ffffff;
+    font-size: 1.25rem;
 }
 
 #window,
@@ -201,8 +202,7 @@ label:focus {
 }
 
 #pulseaudio.muted {
-    background-color: #90b1b1;
-    color: #2a5c45;
+    font-size: 1.5rem;
 }
 
 #wireplumber {
