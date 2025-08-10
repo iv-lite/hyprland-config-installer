@@ -159,7 +159,7 @@
       "headphone": "",
       "default": ""
     },
-    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+    "on-click": "pavucontrol",
     "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%+ -l 1",
     "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-",
     "tooltip": false
