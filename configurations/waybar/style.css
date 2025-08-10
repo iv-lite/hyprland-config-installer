@@ -1,4 +1,4 @@
-* {
+window * {
     font-family: "Roboto Mono";
     font-size: 1.25rem;
     padding: .5rem;
@@ -10,44 +10,15 @@ window#waybar {
     color: #ffffff;
     transition-property: background-color;
     transition-duration: .5s;
-    padding-top: .3rem;
-    padding-bottom: .3rem;
+    padding: .5rem;
 }
 
 window#waybar.hidden {
     opacity: 0.2;
 }
 
-/*
 window#waybar.empty {
     background-color: transparent;
-}
-window#waybar.solo {
-    background-color: #FFFFFF;
-}
-*/
-
-window#waybar.termite {
-    background-color: #3F3F3F;
-}
-
-window#waybar.chromium {
-    background-color: #000000;
-    border: none;
-}
-
-button {
-    /* Use box-shadow instead of border so the text isn't offset */
-    box-shadow: inset 0 -3px transparent;
-    /* Avoid rounded borders under each button name */
-    border: none;
-    border-radius: 0;
-}
-
-/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
-button:hover {
-    background: inherit;
-    box-shadow: inset 0 -3px #ffffff;
 }
 
 /* you can set a style on hover for any module like this */
@@ -55,28 +26,24 @@ button:hover {
     background-color: #a37800;
 }
 
-#workspaces button {
-    padding: 0 5px;
+#workspaces {
     background-color: transparent;
     color: #ffffff;
+    margin-right: 1.5rem;
+    transition: all ease .25s;
+}
+
+#workspaces button,
+#workspaces button.focused {
+    margin: 0;
+    padding: 0;
+    padding-right: .2rem;
 }
 
 #workspaces button:hover {
-    background: rgba(0, 0, 0, 0.2);
-}
-
-#workspaces button.focused {
-    background-color: #64727D;
-    box-shadow: inset 0 -3px #ffffff;
-}
-
-#workspaces button.urgent {
-    background-color: #eb4d4b;
-}
-
-#mode {
-    background-color: #64727D;
-    box-shadow: inset 0 -3px #ffffff;
+    border-radius: 25%;
+    background-color: transparent;
+    border-color: white;
 }
 
 #clock,
@@ -97,14 +64,9 @@ button:hover {
 #scratchpad,
 #power-profiles-daemon,
 #mpd {
-    margin: 0 .2rem;
+    margin: 0 .25rem;
     color: #ffffff;
     font-size: 1.25rem;
-}
-
-#window,
-#workspaces {
-    margin: 0 .2rem;
 }
 
 /* If workspaces is the leftmost module, omit left margin */

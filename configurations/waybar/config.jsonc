@@ -1,10 +1,10 @@
 // -*- mode: jsonc -*-
 {
-  "layer": "top",
+  "layer": "bottom",
   "spacing": 4, // Gaps between modules (4px)
   // Choose the order of the modules
   "modules-left": [
-    // "hyprland/workspaces",
+    "hyprland/workspaces",
     "cpu",
     "memory",
     "temperature",
@@ -21,6 +21,17 @@
     "tray",
     "custom/power"
   ],
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "format-icons": {
+      "active": "",
+      "visible": "",
+      "default": ""
+    },
+    "persistent-workspaces": {
+      "*": 6
+    }
+  },
   "sway/mode": {
     "format": "<span style=\"italic\">{}</span>"
   },
