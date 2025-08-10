@@ -14,6 +14,7 @@ for configuration in ${configurations[*]}; do
     deploy $configuration
 done
 
+sudo localectl set-keymap --no-convert fr_CH
 sudo cp -r ./etc/greetd /etc/
 sudo cp -r ./etc/pam.d/greetd /etc/pam.d/greetd
 sudo cp ./etc/logid.cfg /etc/logid.cfg
