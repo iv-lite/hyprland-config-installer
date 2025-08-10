@@ -23,9 +23,9 @@ export packages="\
     slurp \
     wlogout \
     wl-clipboard \
-    ttf-font-awesome \
+    noto-fonts \
+    otf-font-awesome-5 \
     ttf-roboto-mono \
-    hack-nf-git \
     ttf-roboto \
     mako \
     blueman \

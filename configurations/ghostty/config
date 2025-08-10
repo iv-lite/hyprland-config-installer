@@ -1,7 +1,7 @@
 background = 2C323D
 foreground = ffffff
 
-font-family = "Roboto Mono"
+font-family = "Font Awesome 5 Free"
 mouse-hide-while-typing = true
 
 window-padding-x = 2
