@@ -24,7 +24,7 @@ export packages="\
     wlogout \
     wl-clipboard \
     noto-fonts \
-    otf-font-awesome-5 \
+    ttf-font-awesome-5 \
     ttf-roboto-mono \
     ttf-roboto \
     mako \
@@ -34,7 +34,7 @@ export packages="\
     wayland-protocols \
     foot \
     bluez \
-    blueman \
+    blueberry \
     polkit \
     polkit-gnome \
     qt5-wayland \

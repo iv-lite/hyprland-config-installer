@@ -11,7 +11,7 @@ application_prefer_dark_theme = true
 cursor_theme_name = "Adwaita"
 
 # Font name and size
-font_name = "Font Awesome 5 Free"
+font_name = "Roboto Mono"
 
 # Icon theme name
 icon_theme_name = "Papirus-Dark"
