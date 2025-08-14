@@ -16,6 +16,8 @@ done
 
 sudo localectl set-keymap --no-convert fr_CH
 
+xdg-mime default thunar.desktop inode/directory
+
 sudo cp -r ./etc/greetd /etc/
 
 sudo cp -r ./etc/pam.d/greetd /etc/pam.d/greetd
