@@ -76,4 +76,5 @@ export packages="\
     python-fangfrisch \
     clamtk \
     thunar-sendto-clamtk \
+    mission-center \
     "
