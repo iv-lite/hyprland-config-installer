@@ -16,7 +16,7 @@ on-button-right=dismiss
 on-touch=invoke-default-action
 on-notify=exec mpv /usr/share/sounds/freedesktop/stereo/message.oga
 
-format=<span color="#93a1a1">(%a)</span> - <b>%s</b>\n%b
+format=<span color="#ffffff">(%a)</span> - <b>%s</b>\n%b
 font=monospace 10
 text-alignment=center
 layer=top
@@ -27,7 +27,7 @@ height=110
 margin=5
 padding=5
 border-size=2
-border-color=#2b303b80
+border-color=#2b303b00
 border-radius=5
 icons=0
 max-icon-size=64
@@ -39,17 +39,17 @@ markup=1
 progress-color=source #337e7e
 
 [urgency=normal]
-border-color=#4A607C
+border-color=#2b303b00
 
 [urgency=high]
-border-color=#9b5d64
+border-color=#2b303b00
 default-timeout=0
 
 [app-name=lightcord]
-border-color=#49484C
+border-color=#2b303b00
 
 [summary~="log-.*"]
-border-color=#829b6c
+border-color=#2b303b00
 
 [app-name=lightcord summary~="(.*(^| )orz|ORZ|sto|STO|otl|OTL( |$).*)"]
 invisible=1

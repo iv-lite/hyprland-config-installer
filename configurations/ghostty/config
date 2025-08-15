@@ -1,4 +1,5 @@
-background = 2C323D
+background = 2b303b
+background-opacity = 0.8 
 foreground = ffffff
 
 font-family = "Roboto Mono"
