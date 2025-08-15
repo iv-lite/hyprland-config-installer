@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
-basepath="$(dirname $0)"
-cd $basepath
+cd "$(dirname $0)"
 
 ./paru-fetcher
 

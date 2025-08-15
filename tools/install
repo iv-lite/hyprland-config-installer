@@ -1,13 +1,12 @@
 #!/usr/bin/env bash
 
-basepath="$(dirname $0)"
-cd $basepath
+cd "$(dirname $0)"
 
 if ! command -v Hyprland &>/dev/null; then
     pkill Hyprland
 fi
 
-./uninstall
+./cleaner
 
 ./fetcher
 

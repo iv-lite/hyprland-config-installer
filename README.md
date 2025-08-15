@@ -14,11 +14,8 @@ Launch the installation script using:
 ./tools/install
 ```
 
-## Uninstall
-Launch the uninstallation script using:
+## Uninstall and clean configurations
+Launch the cleaner script using:
 ```bash
-./tools/uninstall
+./tools/cleaner
 ```
-### Cleaning
-A cleaner script will be launch if your reply `yes` to the `Do you want to clean packages?`. 
-_This question will be asked at the end of uninstallation process_
