@@ -27,4 +27,4 @@ fi
 
 ./paru-fetcher
 . ./packages-list
-paru -Rc --noconfirm $packages
+paru -Rsnc --noconfirm $packages

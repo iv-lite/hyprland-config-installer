@@ -28,7 +28,6 @@ export packages="\
     ttf-roboto-mono \
     ttf-roboto \
     mako \
-    blueman \
     gbm \
     hyprland-protocols \
     wayland-protocols \
