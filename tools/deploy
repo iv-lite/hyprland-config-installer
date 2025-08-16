@@ -21,7 +21,7 @@ xdg-mime default org.gnome.Nautilus.desktop x-directory/gnome-default-handler
 
 sudo cp -r ./etc/greetd /etc/
 
-sudo cp -r ./etc/pam.d/greetd /etc/pam.d/greetd
+sudo cp -r ./etc/pam.d/* /etc/pam.d/
 
 sudo cp ./etc/logid.cfg /etc/logid.cfg
 
