@@ -15,9 +15,9 @@ done
 
 sudo localectl set-keymap --no-convert fr_CH
 
-xdg-mime default thunar.desktop inode/directory
-xdg-mime default thunar.desktop x-directory/normal
-xdg-mime default thunar.desktop x-directory/gnome-default-handler
+xdg-mime default org.gnome.Nautilus.desktop inode/directory
+xdg-mime default org.gnome.Nautilus.desktop x-directory/normal
+xdg-mime default org.gnome.Nautilus.desktop x-directory/gnome-default-handler
 
 sudo cp -r ./etc/greetd /etc/
 

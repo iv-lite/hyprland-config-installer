@@ -49,9 +49,9 @@ export packages="\
     logiops \
     wofi \
     tofi \
-    thunar \
     foot \
     ghostty \
+    nautilus \
     direnv \
     gnome-keyring \
     gcr-4 \
@@ -74,6 +74,5 @@ export packages="\
     clamav \
     python-fangfrisch \
     clamtk \
-    thunar-sendto-clamtk \
     mission-center \
     "
