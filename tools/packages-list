@@ -8,6 +8,7 @@ export packages="\
     jq \
     pamixer \
     playerctl \
+    dnscrypt-proxy \
     uwsm \
     dbus-broker \
     wayland-pipewire-idle-inhibit \
