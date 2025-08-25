@@ -25,6 +25,7 @@ sudo cp -r ./etc/pam.d/greetd /etc/pam.d/greetd
 
 sudo cp ./etc/logid.cfg /etc/logid.cfg
 
+sudo systemctl enable --now firewalld.service
 sudo cp -r ./etc/clamav /etc/
 sudo cp ./etc/sudoers.d/clamav /etc/sudoers.d/clamav
 sudo -u clamav /usr/bin/fangfrisch --conf /etc/fangfrisch/fangfrisch.conf initdb

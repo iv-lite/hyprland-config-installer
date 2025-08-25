@@ -5,6 +5,8 @@ export packages="\
     linux-headers \
     mkinitcpio-firmware \
     ddcci-driver-linux-dkms \
+    nftables \
+    firewalld \
     jq \
     pamixer \
     playerctl \
