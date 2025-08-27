@@ -46,11 +46,12 @@ Hyprland --config installer/hyprland.conf
 
 sudo cp -r ./services/* /usr/lib/systemd/system/
 
-sudo touch /run/clamav/clamd.ctl
+touch /run/clamav/clamd.ctl
 sudo chown clamav:clamav /run/clamav/clamd.ctl
-sudo systemctl enable clamav-clamonacc.service --force
-sudo systemctl enable clamav-daemon.service --force
-sudo systemctl enable fangfrisch.timer --force
+sudo freshclam
+sudo systemctl enable clamav-clamonacc.service
+sudo systemctl enable clamav-daemon.service
+sudo systemctl enable fangfrisch.timer
 sudo systemctl enable --now dnscrypt-proxy.socket
 
 status=$(systemctl is-enabled --user gcr-ssh-agent.socket)
@@ -60,17 +61,17 @@ fi
 
 status=$(systemctl is-enabled greetd.service)
 if [ $status != "enabled" ]; then
-    sudo systemctl enable greetd.service --force
+    sudo systemctl enable greetd.service
 fi
 
 status=$(systemctl is-enabled dbus-broker.service)
 if [ $status != "enabled" ]; then
-    sudo systemctl enable dbus-broker.service --force
+    sudo systemctl enable dbus-broker.service
 fi
 
 status=$(systemctl is-enabled bluetooth.service)
 if [ $status != "enabled" ]; then
-    sudo systemctl enable bluetooth.service --force
+    sudo systemctl enable bluetooth.service
 fi
 
 status=$(systemctl is-enabled wayland-pipewire-idle-inhibit.service)
@@ -80,7 +81,7 @@ fi
 
 status=$(systemctl is-enabled logid.service)
 if [ $status != "enabled" ]; then
-    sudo systemctl enable logid.service --force
+    sudo systemctl enable logid.service
 fi
 
 read -r -p "Do you want to reboot ? [y/N] " response
