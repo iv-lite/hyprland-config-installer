@@ -46,6 +46,8 @@ Hyprland --config installer/hyprland.conf
 
 sudo cp -r ./services/* /usr/lib/systemd/system/
 
+touch /run/clamav/clamd.ctl
+sudo chown clamav:clamav /run/clamav/clamd.ctl
 sudo systemctl enable clamav-clamonacc.service --force
 sudo systemctl enable clamav-daemon.service --force
 sudo systemctl enable fangfrisch.timer --force
