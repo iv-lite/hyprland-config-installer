@@ -25,6 +25,6 @@ if [ -f /etc/modules-load.d/ddcci_backlight.conf ]; then
     echo "ddcci_backlight kernel module removed"
 fi
 
-./paru-fetcher
+. ./package-manager
 . ./packages-list
-paru -Rsnc --noconfirm $packages
+${package_manager} -Rsnc --noconfirm $packages

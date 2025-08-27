@@ -2,7 +2,7 @@
 
 cd "$(dirname $0)"
 
-./package-manager
+. ./package-manager
 
 . ./packages-list
 
