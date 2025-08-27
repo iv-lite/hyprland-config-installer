@@ -2,18 +2,19 @@
 
 cd "$(dirname $0)"
 
-command=pikaur
+command=paru
 storage_path="../storage/${command}"
 if ! command -v ${command} &>/dev/null; then
     sudo pacman -Syu --noconfirm
-    sudo pacman -S --needed --noconfirm base-devel git
+    sudo pacman -S --needed --noconfirm base-devel git rustup
+    rustup default stable
 
     if [ -d $storage_path ]; then
         rm -rf $storage_path
     fi
     git clone https://aur.archlinux.org/${command}.git $storage_path
     cd $storage_path
-    makepkg -fsri --noconfirm
+    makepkg -si
 fi
 
 export package_manager=${command}
