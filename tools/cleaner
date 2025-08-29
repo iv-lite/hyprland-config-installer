@@ -27,4 +27,4 @@ fi
 
 . ./package-manager
 . ./packages-list
-${package_manager} -Rsnc --noconfirm $packages
+${package_manager} -Rsn --noconfirm $packages
