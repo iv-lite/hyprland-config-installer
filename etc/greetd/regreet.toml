@@ -1,6 +1,6 @@
 [background]
 # Path to the background image
-path = "/etc/greetd/login.background.jpg"
+path = "/etc/greetd/background.jpg"
 fit = "Cover"
 
 [GTK]
