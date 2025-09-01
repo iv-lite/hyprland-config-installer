@@ -61,7 +61,7 @@ fi
 
 status=$(systemctl is-enabled greetd.service)
 if [ $status != "enabled" ]; then
-    sudo systemctl enable greetd.service
+    sudo systemctl enable greetd.service --force
 fi
 
 status=$(systemctl is-enabled dbus-broker.service)
