@@ -10,6 +10,7 @@ export packages="\
     jq \
     pamixer \
     playerctl \
+    dnscrypt-proxy \
     uwsm \
     dbus-broker \
     wayland-pipewire-idle-inhibit \
@@ -19,7 +20,10 @@ export packages="\
     hyprpaper \
     hyprpicker \
     hyprshot \
+    i2c-tools \
     waybar \
+    grim \
+    slurp \
     wlogout \
     wl-clipboard \
     noto-fonts \
@@ -27,6 +31,7 @@ export packages="\
     ttf-roboto-mono \
     ttf-roboto \
     mako \
+    gbm \
     hyprland-protocols \
     wayland-protocols \
     foot \
@@ -51,9 +56,13 @@ export packages="\
     nautilus \
     direnv \
     gnome-keyring \
+    gcr-4 \
     visual-studio-code-bin \
     greetd \
     greetd-regreet \
+    cmake \
+    meson \
+    cpio \
     cliphist \
     arc-gtk-theme \
     papirus-icon-theme \
@@ -62,8 +71,10 @@ export packages="\
     dbus \
     wlr-protocols \
     wlr-brightness-git \
+    cava \
     pavucontrol \
     clamav \
     python-fangfrisch \
+    clamtk \
     mission-center \
     "

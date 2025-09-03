@@ -36,6 +36,7 @@ echo "greetd deployed"
 sudo cp -r ./etc/modules-load.d/ddcci_backlight.conf /etc/modules-load.d/
 echo "ddcci_backlight kernel module deployed"
 
+sudo usermod -aG i2c $USER
 sudo usermod -aG video $USER
 
 Hyprland --config installer/hyprland.conf
@@ -48,6 +49,12 @@ sudo freshclam
 sudo systemctl enable clamav-clamonacc.service
 sudo systemctl enable clamav-daemon.service
 sudo systemctl enable fangfrisch.timer
+sudo systemctl enable --now dnscrypt-proxy.socket
+
+status=$(systemctl is-enabled --user gcr-ssh-agent.socket)
+if [ $status != "enabled" ]; then
+    systemctl --user enable gcr-ssh-agent.socket --now
+fi
 
 status=$(systemctl is-enabled greetd.service)
 if [ $status != "enabled" ]; then
