@@ -46,6 +46,7 @@ sudo cp -r ./services/* /usr/lib/systemd/system/
 touch /run/clamav/clamd.ctl
 sudo chown clamav:clamav /run/clamav/clamd.ctl
 sudo freshclam
+sudo systemctl enable --now clamav-freshclam.service
 sudo systemctl enable clamav-clamonacc.service
 sudo systemctl enable clamav-daemon.service
 sudo systemctl enable fangfrisch.timer
