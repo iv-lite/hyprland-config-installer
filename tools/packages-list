@@ -3,6 +3,7 @@
 export packages="\
     dkms \
     linux-headers \
+    linux-firmware \
     mkinitcpio-firmware \
     ddcci-driver-linux-dkms \
     nftables \
