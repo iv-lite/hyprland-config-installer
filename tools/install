@@ -6,6 +6,8 @@ if ! command -v Hyprland &>/dev/null; then
     pkill Hyprland
 fi
 
+./keyring-reset.sh
+
 ./cleaner
 
 ./fetcher
