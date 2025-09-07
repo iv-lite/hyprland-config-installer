@@ -50,7 +50,6 @@ sudo systemctl enable --now clamav-freshclam.service
 sudo systemctl enable clamav-clamonacc.service
 sudo systemctl enable clamav-daemon.service
 sudo systemctl enable fangfrisch.timer
-sudo systemctl enable --now dnscrypt-proxy.socket
 
 status=$(systemctl is-enabled --user gcr-ssh-agent.socket)
 if [ $status != "enabled" ]; then
