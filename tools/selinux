@@ -16,7 +16,7 @@ cd ../storage
 git clone https://github.com/archlinuxhardened/selinux.git
 cd ${storage_path}
 ./recv_gpg_keys.sh
-sudo ./build_and_install_all.sh
+./build_and_install_all.sh
 
 echo "Userspace tools and libraries installed"
 
