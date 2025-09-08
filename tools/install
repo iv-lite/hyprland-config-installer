@@ -2,4 +2,12 @@
 
 cd "$(dirname $0)"
 
-sudo pkexec --user ${USER} ./install-process
+./selinux
+
+./keyring-reset
+
+./cleaner
+
+./fetcher
+
+./deploy

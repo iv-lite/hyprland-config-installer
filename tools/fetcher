@@ -6,11 +6,11 @@ cd "$(dirname $0)"
 
 . ./packages-list
 
-yes | ${package_manager} -S --sudoloop $packages
+${package_manager} -Sy --sudoloop --noconfirm $packages
 
 read -r -p "Do you want to install amdgpu hardware audio/video decoding ? [y/N] " response
 if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]; then
     . ./amd-va-packages-list
-    yes | ${package_manager} -S --sudoloop $amd_va_packages
+    ${package_manager} -Sy --sudoloop --noconfirm $amd_va_packages
     echo "Hardware Audio/Video acceleration enabled !"
 fi

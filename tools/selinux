@@ -12,16 +12,23 @@ rm -rf ${storage_path}
 echo "Installing SELinux"
 
 # userspace tools and libraries installation
-cd ../storage
-git clone https://github.com/archlinuxhardened/selinux.git
-cd ${storage_path}
-./recv_gpg_keys.sh
-./build_and_install_all.sh
+${package_manager} --sudoloop -S --noconfirm \
+    libsepol \
+    libselinux \
+    checkpolicy \
+    secilc \
+    setools \
+    libsemanage \
+    semodule-utils \
+    policycoreutils \
+    selinux-python \
+    mcstrans \
+    restorecond
 
 echo "Userspace tools and libraries installed"
 
 # pam modules
-yes | ${package_manager} --sudoloop -S \
+${package_manager} --sudoloop -S --noconfirm \
     pambase-selinux \
     pam-selinux
 
@@ -55,8 +62,9 @@ cd ${basedir}/../storage
 git clone https://aur.archlinux.org/${target}.git
 cd ${target}
 makepkg
-yes | ${package_manager} --sudoloop -S systemd-libs-selinux
-yes | ${package_manager} --sudoloop -S util-linux-selinux
+yes | ${package_manager} --sudoloop -S \
+    systemd-libs-selinux \
+    util-linux-selinux
 makepkg -si
 
 # dbus and pacman hook
