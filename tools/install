@@ -2,12 +2,12 @@
 
 cd "$(dirname $0)"
 
-./selinux
+pkexec --user ${USER} ./selinux
 
-./keyring-reset.sh
+pkexec --user ${USER} ./keyring-reset.sh
 
-./cleaner
+pkexec --user ${USER} ./cleaner
 
-./fetcher
+pkexec --user ${USER} ./fetcher
 
-./deploy
+pkexec --user ${USER} ./deploy
