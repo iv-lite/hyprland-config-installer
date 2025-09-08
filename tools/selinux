@@ -1,0 +1,78 @@
+#!/usr/bin/env bash
+
+basedir="$(dirname $0)"
+cd ${basedir}
+
+. ./package-manager
+
+storage_path="../storage/selinux"
+
+rm -rf ${storage_path}
+
+echo "Installing SELinux"
+
+# userspace tools and libraries installation
+cd ../storage
+git clone https://github.com/archlinuxhardened/selinux.git
+cd ${storage_path}
+./recv_gpg_keys.sh
+./build_and_install_all.sh
+
+echo "Userspace tools and libraries installed"
+
+# pam modules
+${package_manager} -S --noconfirm \
+    pambase-selinux \
+    pam-selinux
+
+echo "Pam modules installed"
+
+# recompile core packages
+${package_manager} -S --noconfirm \
+    coreutils-selinux \
+    findutils-selinux \
+    iproute2-selinux \
+    logrotate-selinux \
+    openssh-selinux \
+    pmisc-selinux \
+    shadow-selinux \
+    cronie-selinux
+
+echo "Core packages rebuilded"
+
+# sudoers
+echo "Backing up sudoers"
+sudo cp -r /etc/sudoers /etc/sudoers.bak
+${package_manager} -S --noconfirm \
+    sudo-selinux
+echo "Sudo replaced with sudo-selinux"
+sudo mv -r /etc/sudoers.bak /etc/sudoers
+echo "Sudoers restored"
+
+# util-linux and systemd
+target="systemd-selinux"
+git clone https://aur.archlinux.org/${target}.git
+cd ${target}
+makepkg
+${package_manager} -S --noconfirm systemd-libs-selinux
+${package_manager} -S --noconfirm util-linux-selinuxA
+makepkg -si
+
+# dbus and pacman hook
+${package_manager} -S --noconfirm dbus-selinux
+${package_manager} -S --noconfirm selinux-alpm-hook
+
+# kernel and policy
+${package_manager} -S --noconfirm \
+    linux \
+    selinux-refpolicy-arch
+
+# Enabling SELinux LSM
+cd ${basedir}
+sudo cp -r ../etc/modules-load.d/lsm.conf /etc/modules-load.d/
+
+# Installing references
+${package_manager} -S --noconfirm selinux-refpolicy-src
+
+# maintaining context
+sudo systemctl enable restorecond.service
