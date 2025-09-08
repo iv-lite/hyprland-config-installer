@@ -51,35 +51,12 @@ sudo systemctl enable clamav-clamonacc.service
 sudo systemctl enable clamav-daemon.service
 sudo systemctl enable fangfrisch.timer
 
-status=$(systemctl is-enabled --user gcr-ssh-agent.socket)
-if [ $status != "enabled" ]; then
-    systemctl --user enable gcr-ssh-agent.socket --now
-fi
-
-status=$(systemctl is-enabled greetd.service)
-if [ $status != "enabled" ]; then
-    sudo systemctl enable greetd.service --force
-fi
-
-status=$(systemctl is-enabled dbus-broker.service)
-if [ $status != "enabled" ]; then
-    sudo systemctl enable dbus-broker.service
-fi
-
-status=$(systemctl is-enabled bluetooth.service)
-if [ $status != "enabled" ]; then
-    sudo systemctl enable bluetooth.service
-fi
-
-status=$(systemctl is-enabled wayland-pipewire-idle-inhibit.service)
-if [ $status != "enabled" ]; then
-    systemctl --user enable wayland-pipewire-idle-inhibit.service --now
-fi
-
-status=$(systemctl is-enabled logid.service)
-if [ $status != "enabled" ]; then
-    sudo systemctl enable logid.service
-fi
+systemctl --user enable gcr-ssh-agent.socket
+sudo systemctl enable greetd.service --force
+sudo systemctl enable dbus-broker.service
+sudo systemctl enable bluetooth.service
+systemctl --user enable wayland-pipewire-idle-inhibit.service
+sudo systemctl enable logid.service
 
 read -r -p "Do you want to reboot ? [y/N] " response
 if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]; then
