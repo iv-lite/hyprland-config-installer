@@ -21,14 +21,14 @@ cd ${storage_path}
 echo "Userspace tools and libraries installed"
 
 # pam modules
-${package_manager} -S --noconfirm \
+${package_manager} -S \
     pambase-selinux \
     pam-selinux
 
 echo "Pam modules installed"
 
 # recompile core packages
-${package_manager} -S --noconfirm \
+${package_manager} -S \
     coreutils-selinux \
     findutils-selinux \
     iproute2-selinux \
@@ -43,7 +43,7 @@ echo "Core packages rebuilded"
 # sudoers
 echo "Backing up sudoers"
 sudo cp -r /etc/sudoers /etc/sudoers.bak
-${package_manager} -S --noconfirm \
+${package_manager} -S \
     sudo-selinux
 echo "Sudo replaced with sudo-selinux"
 sudo mv -r /etc/sudoers.bak /etc/sudoers
@@ -54,16 +54,16 @@ target="systemd-selinux"
 git clone https://aur.archlinux.org/${target}.git
 cd ${target}
 makepkg
-${package_manager} -S --noconfirm systemd-libs-selinux
-${package_manager} -S --noconfirm util-linux-selinuxA
+${package_manager} -S systemd-libs-selinux
+${package_manager} -S util-linux-selinux
 makepkg -si
 
 # dbus and pacman hook
-${package_manager} -S --noconfirm dbus-selinux
-${package_manager} -S --noconfirm selinux-alpm-hook
+${package_manager} -S dbus-selinux
+${package_manager} -S selinux-alpm-hook
 
 # kernel and policy
-${package_manager} -S --noconfirm \
+${package_manager} -S \
     linux \
     selinux-refpolicy-arch
 
@@ -72,7 +72,7 @@ cd ${basedir}
 sudo cp -r ../etc/modules-load.d/lsm.conf /etc/modules-load.d/
 
 # Installing references
-${package_manager} -S --noconfirm selinux-refpolicy-src
+${package_manager} -S selinux-refpolicy-src
 
 # maintaining context
 sudo systemctl enable restorecond.service
