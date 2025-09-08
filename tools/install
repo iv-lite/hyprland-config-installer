@@ -2,4 +2,4 @@
 
 cd "$(dirname $0)"
 
-pkexec --user ${USER} ./install-process
+sudo pkexec --user ${USER} ./install-process
