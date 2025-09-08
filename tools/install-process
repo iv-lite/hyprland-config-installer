@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+cd "$(dirname $0)"
+
+./selinux
+
+./keyring-reset.sh
+
+./cleaner
+
+./fetcher
+
+./deploy
