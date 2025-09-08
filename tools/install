@@ -2,7 +2,7 @@
 
 cd "$(dirname $0)"
 
-./selinux
+./selinux-installer
 
 ./keyring-reset
 
