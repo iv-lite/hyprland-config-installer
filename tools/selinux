@@ -16,7 +16,7 @@ cd ../storage
 git clone https://github.com/archlinuxhardened/selinux.git
 cd ${storage_path}
 ./recv_gpg_keys.sh
-./build_and_install_all.sh
+sudo ./build_and_install_all.sh
 
 echo "Userspace tools and libraries installed"
 
@@ -70,6 +70,9 @@ yes | ${package_manager} --sudoloop -S \
 
 # Installing references
 yes | ${package_manager} --sudoloop -S selinux-refpolicy-src
+
+# SELinux gui
+yes | ${package_manager} --sudoloop -S setools
 
 # Enabling SELinux LSM
 sudo cp -r ${basedir}/../etc/modules-load.d/lsm.conf /etc/modules-load.d/
