@@ -51,6 +51,7 @@ echo "Sudoers restored"
 
 # util-linux and systemd
 target="systemd-selinux"
+cd ${basedir}/../storage
 git clone https://aur.archlinux.org/${target}.git
 cd ${target}
 makepkg
