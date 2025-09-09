@@ -28,10 +28,10 @@ echo "Userspace tools and libraries installed"
 yes | ${package_manager} --answerclean=All --answerdiff=None --answeredit=None \
     pambase-selinux \
     pam-selinux
-
 echo "Pam modules installed"
 
 # recompile core packages
+echo "Recompiling core-packages"
 yes | ${package_manager} --answerclean=All --answerdiff=None --answeredit=None \
     coreutils-selinux \
     findutils-selinux \
@@ -41,8 +41,6 @@ yes | ${package_manager} --answerclean=All --answerdiff=None --answeredit=None \
     psmisc-selinux \
     shadow-selinux \
     cronie-selinux
-
-echo "Core packages rebuilded"
 
 # sudoers
 echo "Backing up sudoers"
@@ -55,6 +53,7 @@ echo "Sudoers restored"
 
 # util-linux and systemd
 if [ ! -d  "${basedir}/../storage" ]; then
+    echo "Recompiling systemd"
     target="systemd-selinux"
     cd ${basedir}/../storage
     git clone https://aur.archlinux.org/${target}.git
@@ -68,6 +67,7 @@ if [ ! -d  "${basedir}/../storage" ]; then
 fi
 
 # post installation
+echo "Proceeding to post installation"
 yes | ${package_manager} --answerclean=All --answerdiff=None --answeredit=None \
     dbus-selinux \
     selinux-alpm-hook \
@@ -77,7 +77,9 @@ yes | ${package_manager} --answerclean=All --answerdiff=None --answeredit=None \
     setools
 
 # Enabling SELinux LSM
+echo "Making sure SELinux boots at start"
 sudo cp -r ${basedir}/../etc/modules-load.d/lsm.conf /etc/modules-load.d/
 
-# maintaining context
+# Maintaining context
+echo "Enabling context service"
 sudo systemctl enable restorecond
