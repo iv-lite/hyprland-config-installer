@@ -27,4 +27,4 @@ fi
 
 . ./package-manager
 . ./packages-list
-yes | ${package_manager} -Sy --answerclean=All --answerdiff=None --answeredit=None $packages
+${package_manager} -Rns --noconfirm $packages
