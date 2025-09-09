@@ -54,15 +54,18 @@ sudo mv /etc/sudoers.bak /etc/sudoers
 echo "Sudoers restored"
 
 # util-linux and systemd
-target="systemd-selinux"
-cd ${basedir}/../storage
-git clone https://aur.archlinux.org/${target}.git
-cd ${target}
-makepkg
-yes | ${package_manager} --answerclean=All --answerdiff=None --answeredit=None \
-    systemd-libs-selinux \
-    util-linux-selinux
-makepkg -si
+if [ ! -d  "${basedir}/../storage" ]; then
+    target="systemd-selinux"
+    cd ${basedir}/../storage
+    git clone https://aur.archlinux.org/${target}.git
+    cd ${target}
+    makepkg
+    yes | ${package_manager} --answerclean=All --answerdiff=None --answeredit=None \
+        systemd-libs-selinux \
+        util-linux-libs-selinux \
+        util-linux-selinux
+    makepkg -si
+fi
 
 # post installation
 yes | ${package_manager} --answerclean=All --answerdiff=None --answeredit=None \
@@ -77,4 +80,4 @@ yes | ${package_manager} --answerclean=All --answerdiff=None --answeredit=None \
 sudo cp -r ${basedir}/../etc/modules-load.d/lsm.conf /etc/modules-load.d/
 
 # maintaining context
-sudo systemctl enable restorecond.service
+sudo systemctl enable restorecond
