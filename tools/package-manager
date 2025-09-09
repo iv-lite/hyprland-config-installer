@@ -4,7 +4,7 @@ cd "$(dirname ${BASH_SOURCE[0]})"
 basedir="$(pwd)"
 
 command=yay
-storage_path="${basedir}../storage/${command}"
+storage_path="${basedir}/../storage/${command}"
 if ! command -v ${command} &>/dev/null; then
     sudo pacman -Syu --noconfirm
     sudo pacman -S --needed --noconfirm base-devel git rustup
