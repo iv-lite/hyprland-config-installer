@@ -8,7 +8,7 @@ basedir="$(pwd)"
 echo "Installing SELinux"
 
 # userspace tools and libraries installation
-${package_manager} --sudoloop -S --noconfirm  \
+yes | ${package_manager} --answerclean=All --answerdiff=None --answeredit=None \
     libsepol \
     libselinux \
     checkpolicy \
@@ -25,14 +25,14 @@ ${package_manager} --sudoloop -S --noconfirm  \
 echo "Userspace tools and libraries installed"
 
 # pam modules
-${package_manager} --sudoloop -S --noconfirm \
+yes | ${package_manager} --answerclean=All --answerdiff=None --answeredit=None \
     pambase-selinux \
     pam-selinux
 
 echo "Pam modules installed"
 
 # recompile core packages
-${package_manager} --sudoloop -S --noconfirm \
+yes | ${package_manager} --answerclean=All --answerdiff=None --answeredit=None \
     coreutils-selinux \
     findutils-selinux \
     iproute2-selinux \
@@ -47,7 +47,7 @@ echo "Core packages rebuilded"
 # sudoers
 echo "Backing up sudoers"
 sudo cp -r /etc/sudoers /etc/sudoers.bak
-${package_manager} --sudoloop -S --noconfirm \
+yes | ${package_manager} --answerclean=All --answerdiff=None --answeredit=None \
     sudo-selinux
 echo "Sudo replaced with sudo-selinux"
 sudo mv -r /etc/sudoers.bak /etc/sudoers
@@ -59,13 +59,13 @@ cd ${basedir}/../storage
 git clone https://aur.archlinux.org/${target}.git
 cd ${target}
 makepkg
-${package_manager} --sudoloop -S --noconfirm \
+yes | ${package_manager} --answerclean=All --answerdiff=None --answeredit=None \
     systemd-libs-selinux \
     util-linux-selinux
 makepkg -si
 
 # post installation
-${package_manager} --sudoloop -S --noconfirm \
+yes | ${package_manager} --answerclean=All --answerdiff=None --answeredit=None \
     dbus-selinux \
     selinux-alpm-hook \
     linux \
