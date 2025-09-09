@@ -25,14 +25,14 @@ ${package_manager} --sudoloop -S --noconfirm  \
 echo "Userspace tools and libraries installed"
 
 # pam modules
-yes | ${package_manager} --sudoloop -S \
+${package_manager} --sudoloop -S --noconfirm \
     pambase-selinux \
     pam-selinux
 
 echo "Pam modules installed"
 
 # recompile core packages
-yes | ${package_manager} --sudoloop -S \
+${package_manager} --sudoloop -S --noconfirm \
     coreutils-selinux \
     findutils-selinux \
     iproute2-selinux \
@@ -47,7 +47,7 @@ echo "Core packages rebuilded"
 # sudoers
 echo "Backing up sudoers"
 sudo cp -r /etc/sudoers /etc/sudoers.bak
-yes | ${package_manager} --sudoloop -S \
+${package_manager} --sudoloop -S --noconfirm \
     sudo-selinux
 echo "Sudo replaced with sudo-selinux"
 sudo mv -r /etc/sudoers.bak /etc/sudoers
@@ -59,13 +59,13 @@ cd ${basedir}/../storage
 git clone https://aur.archlinux.org/${target}.git
 cd ${target}
 makepkg
-yes | ${package_manager} --sudoloop -S \
+${package_manager} --sudoloop -S --noconfirm \
     systemd-libs-selinux \
     util-linux-selinux
 makepkg -si
 
 # post installation
-yes | ${package_manager} --sudoloop -S \
+${package_manager} --sudoloop -S --noconfirm \
     dbus-selinux \
     selinux-alpm-hook \
     linux \

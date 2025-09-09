@@ -15,7 +15,7 @@ if ! command -v ${command} &>/dev/null; then
     fi
     git clone https://aur.archlinux.org/${command}.git $storage_path
     cd $storage_path
-    makepkg -si
+    makepkg -si --noconfirm
 fi
 
 export package_manager=${command}
