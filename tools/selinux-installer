@@ -50,7 +50,7 @@ sudo cp -r /etc/sudoers /etc/sudoers.bak
 yes | ${package_manager} --answerclean=All --answerdiff=None --answeredit=None \
     sudo-selinux
 echo "Sudo replaced with sudo-selinux"
-sudo mv -r /etc/sudoers.bak /etc/sudoers
+sudo mv /etc/sudoers.bak /etc/sudoers
 echo "Sudoers restored"
 
 # util-linux and systemd
