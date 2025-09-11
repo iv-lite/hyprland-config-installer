@@ -8,7 +8,7 @@ basedir="$(pwd)"
 echo "Installing SELinux"
 
 # userspace tools and libraries installation
-${package_manager} -Sy --noconfirm --answerclean=None --answerdiff=None --answeredit=None \
+${package_manager} -S --noconfirm --answerclean=None --answerdiff=None --answeredit=None \
     libsepol \
     libselinux \
     checkpolicy \
@@ -25,14 +25,14 @@ ${package_manager} -Sy --noconfirm --answerclean=None --answerdiff=None --answer
 echo "Userspace tools and libraries installed"
 
 # pam modules
-${package_manager} -Sy --noconfirm --answerclean=None --answerdiff=None --answeredit=None \
+yes | ${package_manager} -S --answerclean=None --answerdiff=None --answeredit=None \
     pambase-selinux \
     pam-selinux
 echo "Pam modules installed"
 
 # recompile core packages
 echo "Recompiling core-packages"
-${package_manager} -Sy --noconfirm --answerclean=None --answerdiff=None --answeredit=None \
+yes | ${package_manager} -S --answerclean=None --answerdiff=None --answeredit=None \
     coreutils-selinux \
     findutils-selinux \
     iproute2-selinux \
@@ -45,7 +45,7 @@ ${package_manager} -Sy --noconfirm --answerclean=None --answerdiff=None --answer
 # sudoers
 echo "Backing up sudoers"
 sudo cp -r /etc/sudoers /etc/sudoers.bak
-${package_manager} -Sy --noconfirm --answerclean=None --answerdiff=None --answeredit=None \
+yes | ${package_manager} -S --answerclean=None --answerdiff=None --answeredit=None \
     sudo-selinux
 echo "Sudo replaced with sudo-selinux"
 sudo mv /etc/sudoers.bak /etc/sudoers
@@ -53,16 +53,16 @@ echo "Sudoers restored"
 
 # util-linux and systemd
 echo "Recompiling systemd"
-${package_manager} -Sy --noconfirm --answerclean=None --answerdiff=None --answeredit=None \
+yes | ${package_manager} -S --answerclean=None --answerdiff=None --answeredit=None \
     systemd-selinux
 
 # post installation
 echo "Proceeding to post installation"
-${package_manager} -Sy --answerclean=None --answerdiff=None --answeredit=None \
+yes | ${package_manager} -S --answerclean=None --answerdiff=None --answeredit=None \
     dbus-selinux \
     selinux-alpm-hook
 
-yes | ${package_manager} -Sy --answerclean=None --answerdiff=None --answeredit=None \
+yes | ${package_manager} -S --answerclean=None --answerdiff=None --answeredit=None \
     linux \
     selinux-refpolicy-arch \
     selinux-refpolicy-src \

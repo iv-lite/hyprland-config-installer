@@ -43,7 +43,8 @@ Hyprland --config installer/hyprland.conf
 
 sudo cp -r ./services/* /usr/lib/systemd/system/
 
-touch /run/clamav/clamd.ctl
+sudo mkdir /run/clamav
+sudo touch /run/clamav/clamd.ctl
 sudo chown clamav:clamav /run/clamav/clamd.ctl
 sudo freshclam
 sudo systemctl enable --now clamav-freshclam.service
