@@ -8,7 +8,7 @@ basedir="$(pwd)"
 echo "Installing SELinux"
 
 # userspace tools and libraries installation
-yes | ${package_manager} --answerclean=All --answerdiff=None --answeredit=None \
+${package_manager} -Sy --noconfirm --answerclean=None --answerdiff=None --answeredit=None \
     libsepol \
     libselinux \
     checkpolicy \
@@ -25,14 +25,14 @@ yes | ${package_manager} --answerclean=All --answerdiff=None --answeredit=None \
 echo "Userspace tools and libraries installed"
 
 # pam modules
-yes | ${package_manager} --answerclean=All --answerdiff=None --answeredit=None \
+${package_manager} -Sy --noconfirm --answerclean=None --answerdiff=None --answeredit=None \
     pambase-selinux \
     pam-selinux
 echo "Pam modules installed"
 
 # recompile core packages
 echo "Recompiling core-packages"
-yes | ${package_manager} --answerclean=All --answerdiff=None --answeredit=None \
+${package_manager} -Sy --noconfirm --answerclean=None --answerdiff=None --answeredit=None \
     coreutils-selinux \
     findutils-selinux \
     iproute2-selinux \
@@ -45,30 +45,20 @@ yes | ${package_manager} --answerclean=All --answerdiff=None --answeredit=None \
 # sudoers
 echo "Backing up sudoers"
 sudo cp -r /etc/sudoers /etc/sudoers.bak
-yes | ${package_manager} --answerclean=All --answerdiff=None --answeredit=None \
+${package_manager} -Sy --noconfirm --answerclean=None --answerdiff=None --answeredit=None \
     sudo-selinux
 echo "Sudo replaced with sudo-selinux"
 sudo mv /etc/sudoers.bak /etc/sudoers
 echo "Sudoers restored"
 
 # util-linux and systemd
-if [ ! -d  "${basedir}/../storage" ]; then
-    echo "Recompiling systemd"
-    target="systemd-selinux"
-    cd ${basedir}/../storage
-    git clone https://aur.archlinux.org/${target}.git
-    cd ${target}
-    makepkg
-    yes | ${package_manager} --answerclean=All --answerdiff=None --answeredit=None \
-        systemd-libs-selinux \
-        util-linux-libs-selinux \
-        util-linux-selinux
-    makepkg -si
-fi
+echo "Recompiling systemd"
+${package_manager} -Sy --noconfirm --answerclean=None --answerdiff=None --answeredit=None \
+    systemd-selinux
 
 # post installation
 echo "Proceeding to post installation"
-yes | ${package_manager} --answerclean=All --answerdiff=None --answeredit=None \
+yes | ${package_manager} -Sy --answerclean=None --answerdiff=None --answeredit=None \
     dbus-selinux \
     selinux-alpm-hook \
     linux \
