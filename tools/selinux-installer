@@ -3,75 +3,15 @@
 cd "$(dirname ${BASH_SOURCE[0]})"
 basedir="$(pwd)"
 
-. ./package-manager
-
 echo "Installing SELinux"
 
-# userspace tools and libraries installation
-${package_manager} -S --noconfirm --answerclean=None --answerdiff=None --answeredit=None \
-    libsepol \
-    libselinux \
-    checkpolicy \
-    secilc \
-    setools \
-    libsemanage \
-    semodule-utils \
-    policycoreutils \
-    python-ipy \
-    selinux-python \
-    mcstrans \
-    restorecond
+cd ${basedir}/../storage
 
-echo "Userspace tools and libraries installed"
-
-# pam modules
-yes | ${package_manager} -S --answerclean=None --answerdiff=None --answeredit=None \
-    pambase-selinux \
-    pam-selinux
-echo "Pam modules installed"
-
-# recompile core packages
-echo "Recompiling core-packages"
-yes | ${package_manager} -S --answerclean=None --answerdiff=None --answeredit=None \
-    coreutils-selinux \
-    findutils-selinux \
-    iproute2-selinux \
-    logrotate-selinux \
-    openssh-selinux \
-    psmisc-selinux \
-    shadow-selinux \
-    cronie-selinux
-
-# sudoers
-echo "Backing up sudoers"
-sudo cp -r /etc/sudoers /etc/sudoers.bak
-yes | ${package_manager} -S --answerclean=None --answerdiff=None --answeredit=None \
-    sudo-selinux
-echo "Sudo replaced with sudo-selinux"
-sudo mv /etc/sudoers.bak /etc/sudoers
-echo "Sudoers restored"
-
-# util-linux and systemd
-echo "Recompiling systemd"
-yes | ${package_manager} -S --answerclean=None --answerdiff=None --answeredit=None \
-    systemd-selinux
-
-# post installation
-echo "Proceeding to post installation"
-yes | ${package_manager} -S --answerclean=None --answerdiff=None --answeredit=None \
-    dbus-selinux \
-    selinux-alpm-hook
-
-yes | ${package_manager} -S --answerclean=None --answerdiff=None --answeredit=None \
-    linux \
-    selinux-refpolicy-arch \
-    selinux-refpolicy-src \
-    selinux-gui
+git clone https://github.com/archlinuxhardened/selinux.git
+cd selinux
+./recv_gpg_keys.sh
+./build_and_install_all.sh
 
 # Enabling SELinux LSM
 echo "Making sure SELinux boots at start"
 sudo cp -r ${basedir}/../etc/modules-load.d/config-lsm.conf /etc/modules-load.d/
-
-# Maintaining context
-echo "Enabling context service"
-sudo systemctl enable restorecond
