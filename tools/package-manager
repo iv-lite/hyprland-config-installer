@@ -3,9 +3,9 @@
 cd "$(dirname ${BASH_SOURCE[0]})"
 basedir="$(pwd)"
 
-command=yay
-storage_path="${basedir}/../storage/${command}"
-if ! command -v ${command} &>/dev/null; then
+pm=yay
+storage_path="${basedir}/../storage/${pm}"
+if ! command -v ${pm} &>/dev/null; then
     sudo pacman -Syu --noconfirm
     sudo pacman -S --needed --noconfirm base-devel git rustup
     rustup default stable
@@ -13,9 +13,9 @@ if ! command -v ${command} &>/dev/null; then
     if [ -d $storage_path ]; then
         rm -rf $storage_path
     fi
-    git clone https://aur.archlinux.org/${command}.git $storage_path
+    git clone https://aur.archlinux.org/${pm}.git $storage_path
     cd $storage_path
     makepkg -si --noconfirm
 fi
 
-export package_manager=${command}
+export package_manager=${pm}
