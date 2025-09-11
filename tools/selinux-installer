@@ -58,19 +58,19 @@ ${package_manager} -Sy --noconfirm --answerclean=None --answerdiff=None --answer
 
 # post installation
 echo "Proceeding to post installation"
-yes | ${package_manager} -Sy --answerclean=None --answerdiff=None --answeredit=None \
+${package_manager} -Sy --answerclean=None --answerdiff=None --answeredit=None \
     dbus-selinux \
-    selinux-alpm-hook \
+    selinux-alpm-hook
+
+yes | ${package_manager} -Sy --answerclean=None --answerdiff=None --answeredit=None \
     linux \
     selinux-refpolicy-arch \
     selinux-refpolicy-src \
-    setools
+    selinux-gui
 
 # Enabling SELinux LSM
 echo "Making sure SELinux boots at start"
 sudo cp -r ${basedir}/../etc/modules-load.d/config-lsm.conf /etc/modules-load.d/
-sudo cp -r ${basedir}/../etc/modprobe.d/lsm.conf /etc/modprobe.d/
-sudo mkinitcpio -p linux
 
 # Maintaining context
 echo "Enabling context service"
