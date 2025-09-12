@@ -13,6 +13,7 @@ if ! command -v ${pm} &>/dev/null; then
     if [ -d $storage_path ]; then
         rm -rf $storage_path
     fi
+    cd ${basedir}/../storage
     git clone https://aur.archlinux.org/${pm}.git $storage_path
     cd $storage_path
     makepkg -si --noconfirm
