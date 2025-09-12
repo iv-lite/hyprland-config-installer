@@ -18,10 +18,12 @@ fi
 
 repo_dir="${basedir}/../storage/selinux"
 install() {
-    for package in "$@";do
-        cd ${repo_dir}/${package}
-        makepkg -si --noconfirm
-    done
+    cd ${repo_dir}
+    ${package_manager} --noconfirm --answerclean=All --answerdiff=None --answeredit=None -Bi "$@"
+    # for package in "$@";do
+    #     ${package_manager} --noconfirm --answerclean=All --answerdiff=None --answeredit=None -Bi \
+    #         ${repo_dir}/${package}
+    # done
 }
 
 install  \
@@ -33,7 +35,6 @@ install  \
     libsemanage \
     semodule-utils \
     policycoreutils \
-    python-ipy \
     selinux-python \
     mcstrans \
     restorecond
@@ -68,19 +69,14 @@ echo "Sudoers restored"
 
 # util-linux and systemd
 echo "Recompiling systemd"
-cd ${repo_dir}/systemd-selinux
-makepkg -s
-cd ${repo_dir}/systemd-libs-selinux
-makepkg -si
-cd ${repo_dir}/systemd-selinux
-makepkg -si
+install systemd-selinux
 
 # post installation
 echo "Proceeding to post installation"
 install dbus-selinux
 install selinux-alpm-hook
 
-yes | ${package_manager} --aururl=${aururl} -Sy --answerclean=None --answerdiff=None --answeredit=None \
+yes | ${package_manager} -Sy --noconfirm --answerclean=All --answerdiff=None --answeredit=None -S \
     linux \
     selinux-refpolicy-arch \
     selinux-gui
