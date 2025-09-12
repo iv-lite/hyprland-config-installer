@@ -8,6 +8,14 @@ aururl="https://github.com/archlinuxhardened/selinux/"
 
 echo "Installing SELinux"
 
+# making sure keys are installed
+if [ ! -d "${basedir}/../storage/selinux" ];then
+    cd ${basedir}/../storage
+    git clone https://github.com/archlinuxhardened/selinux.git
+    cd selinux
+    ./recv_gpg_keys.sh
+fi
+
 # userspace tools and libraries installation
 ${package_manager} --aururl=${aururl} -Sy --noconfirm --answerclean=None --answerdiff=None --answeredit=None \
     libsepol \
