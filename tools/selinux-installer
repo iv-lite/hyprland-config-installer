@@ -2,7 +2,7 @@
 
 cd "$(dirname ${BASH_SOURCE[0]})"
 basedir="$(pwd)"
-aururl="https://github.com/archlinuxhardened/selinux/"
+aururl="github.com/archlinuxhardened/selinux"
 
 . ./package-manager
 
@@ -16,8 +16,15 @@ if [ ! -d "${basedir}/../storage/selinux" ];then
     ./recv_gpg_keys.sh
 fi
 
-# userspace tools and libraries installation
-${package_manager} --aururl=${aururl} -Sy --noconfirm --answerclean=None --answerdiff=None --answeredit=None \
+repo_dir="${basedir}/../storage/selinux"
+install() {
+    for package in "$@";do
+        cd ${repo_dir}/${package}
+        makepkg -si --noconfirm
+    done
+}
+
+install  \
     libsepol \
     libselinux \
     checkpolicy \
@@ -34,14 +41,13 @@ ${package_manager} --aururl=${aururl} -Sy --noconfirm --answerclean=None --answe
 echo "Userspace tools and libraries installed"
 
 # pam modules
-${package_manager} --aururl=${aururl} -Sy --noconfirm --answerclean=None --answerdiff=None --answeredit=None \
+install \
     pambase-selinux \
     pam-selinux
 echo "Pam modules installed"
 
 # recompile core packages
-echo "Recompiling core-packages"
-${package_manager} --aururl=${aururl} -Sy --noconfirm --answerclean=None --answerdiff=None --answeredit=None \
+install \
     coreutils-selinux \
     findutils-selinux \
     iproute2-selinux \
@@ -54,7 +60,7 @@ ${package_manager} --aururl=${aururl} -Sy --noconfirm --answerclean=None --answe
 # sudoers
 echo "Backing up sudoers"
 sudo cp -r /etc/sudoers /etc/sudoers.bak
-${package_manager} --aururl=${aururl} -Sy --noconfirm --answerclean=None --answerdiff=None --answeredit=None \
+install \
     sudo-selinux
 echo "Sudo replaced with sudo-selinux"
 sudo mv /etc/sudoers.bak /etc/sudoers
@@ -62,24 +68,27 @@ echo "Sudoers restored"
 
 # util-linux and systemd
 echo "Recompiling systemd"
-${package_manager} --aururl=${aururl} -Sy --noconfirm --answerclean=None --answerdiff=None --answeredit=None \
-    systemd-selinux
+cd ${repo_dir}/systemd-selinux
+makepkg -s
+cd ${repo_dir}/systemd-libs-selinux
+makepkg -si
+cd ${repo_dir}/systemd-selinux
+makepkg -si
 
 # post installation
 echo "Proceeding to post installation"
-${package_manager} --aururl=${aururl} -Sy --answerclean=None --answerdiff=None --answeredit=None \
-    dbus-selinux \
-    selinux-alpm-hook
+install dbus-selinux
+install selinux-alpm-hook
 
 yes | ${package_manager} --aururl=${aururl} -Sy --answerclean=None --answerdiff=None --answeredit=None \
     linux \
     selinux-refpolicy-arch \
-    selinux-refpolicy-src \
     selinux-gui
 
 # Enabling SELinux LSM
 echo "Making sure SELinux boots at start"
 sudo cp -r ${basedir}/../etc/modules-load.d/config-lsm.conf /etc/modules-load.d/
+mkinitcpio -p linux
 
 # Maintaining context
 echo "Enabling context service"
