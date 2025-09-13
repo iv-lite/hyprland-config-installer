@@ -19,7 +19,11 @@ fi
 repo_dir="${basedir}/../storage/selinux"
 install() {
     cd ${repo_dir}
-    ${package_manager} --sudoloop --noconfirm --answerclean=All --answerdiff=None --answeredit=None -Bi "$@"
+    packages=( "$@" )
+    packages=${packages[@]/*/'./'&}
+    yes | ${package_manager} \
+        --sudoloop \
+         -S "${packages[*]}"
 }
 
 install  \
@@ -65,14 +69,26 @@ echo "Sudoers restored"
 
 # util-linux and systemd
 echo "Recompiling systemd"
-install systemd-selinux
+cd ${repo_dir}/selinux
+${package_manager} --sudoloop --noconfirm -B \
+    ./systemd-selinux
+${package_manager} --sudoloop --noconfirm -S \
+    systemd-libs-selinux
+${package_manager} --sudoloop --noconfirm -S \
+    --overwrite "*" \
+    util-linux-selinux \
+    --asdeps util-linux-libs-selinux
+${package_manager} --sudoloop --noconfirm -S \
+    --overwrite "*" \
+    ./systemd-selinux
 
 # post installation
 echo "Proceeding to post installation"
-install dbus-selinux
-install selinux-alpm-hook
+install \
+    dbus-selinux \
+    selinux-alpm-hook
 
-yes | ${package_manager} --sudoloop -Sy --noconfirm --answerclean=All --answerdiff=None --answeredit=None -S \
+yes | ${package_manager} --sudoloop --noconfirm -S \
     linux \
     selinux-refpolicy-arch \
     selinux-gui

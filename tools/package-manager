@@ -3,7 +3,7 @@
 cd "$(dirname ${BASH_SOURCE[0]})"
 basedir="$(pwd)"
 
-pm=yay
+pm=paru
 storage_path="${basedir}/../storage/${pm}"
 if ! command -v ${pm} &>/dev/null; then
     sudo pacman -Syu --noconfirm
