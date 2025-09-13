@@ -22,7 +22,7 @@ install() {
     packages=( "$@" )
     packages=${packages[@]/*/'./'&}
     yes | ${package_manager} \
-        --sudoloop \
+        \
          -S "${packages[*]}"
 }
 
@@ -70,15 +70,15 @@ echo "Sudoers restored"
 # util-linux and systemd
 echo "Recompiling systemd"
 cd ${repo_dir}/selinux
-${package_manager} --sudoloop --noconfirm -B \
+${package_manager} --noconfirm -B \
     ./systemd-selinux
-${package_manager} --sudoloop --noconfirm -S \
+${package_manager} --noconfirm -S \
     systemd-libs-selinux
-${package_manager} --sudoloop --noconfirm -S \
+${package_manager} --noconfirm -S \
     --overwrite "*" \
     util-linux-selinux \
     --asdeps util-linux-libs-selinux
-${package_manager} --sudoloop --noconfirm -S \
+${package_manager} --noconfirm -S \
     --overwrite "*" \
     ./systemd-selinux
 
@@ -88,7 +88,7 @@ install \
     dbus-selinux \
     selinux-alpm-hook
 
-yes | ${package_manager} --sudoloop --noconfirm -S \
+yes | ${package_manager} --noconfirm -S \
     linux \
     selinux-refpolicy-arch \
     selinux-gui
