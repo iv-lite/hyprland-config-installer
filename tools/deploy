@@ -38,7 +38,6 @@ echo "greetd deployed"
 sudo cp -r ./etc/modules-load.d/ddcci_backlight.conf /etc/modules-load.d/
 echo "ddcci_backlight kernel module deployed"
 
-sudo usermod -aG i2c $USER
 sudo usermod -aG video $USER
 
 Hyprland --config installer/hyprland.conf

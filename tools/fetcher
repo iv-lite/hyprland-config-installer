@@ -4,11 +4,21 @@ cd "$(dirname ${BASH_SOURCE[0]})"
 
 . ./package-manager
 
-. ./packages-list
+read -r -p "Do you want to enable the firewall ? [y/N] " response
+if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]; then
+    ${package_manager} --noconfirm -S \
+        ufw \
+        firewalld
+    
+    sudo systemctl enable --now ufw.service
+    sudo ufw enable
+fi
 
+echo "Installing default packages"
+. ./packages-list
 ${package_manager} --noconfirm -S $packages
 
-read -r -p "Do you want to install amdgpu hardware audio/video decoding ? [y/N] " response
+read -r -p "Do you want to enable amdgpu hardware audio/video decoding ? [y/N] " response
 if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]; then
     . ./amd-va-packages-list
     ${package_manager} --noconfirm -S $amd_va_packages

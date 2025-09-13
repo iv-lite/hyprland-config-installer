@@ -2,14 +2,10 @@
 
 cd "$(dirname ${BASH_SOURCE[0]})"
 
-./keyring-reset
-
 read -r -p "Do you want to install SELinux ? [y/N] " response
 if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]; then
     ./selinux-installer
 fi
-
-./cleaner
 
 ./fetcher
 
