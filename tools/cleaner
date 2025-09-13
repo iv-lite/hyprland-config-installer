@@ -27,4 +27,4 @@ fi
 
 . ./package-manager
 . ./packages-list
-${package_manager} -Rns --noconfirm $packages
+${package_manager} --sudoloop -Rns --noconfirm $packages

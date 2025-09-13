@@ -19,11 +19,7 @@ fi
 repo_dir="${basedir}/../storage/selinux"
 install() {
     cd ${repo_dir}
-    ${package_manager} --noconfirm --answerclean=All --answerdiff=None --answeredit=None -Bi "$@"
-    # for package in "$@";do
-    #     ${package_manager} --noconfirm --answerclean=All --answerdiff=None --answeredit=None -Bi \
-    #         ${repo_dir}/${package}
-    # done
+    ${package_manager} --sudoloop --noconfirm --answerclean=All --answerdiff=None --answeredit=None -Bi "$@"
 }
 
 install  \
@@ -76,7 +72,7 @@ echo "Proceeding to post installation"
 install dbus-selinux
 install selinux-alpm-hook
 
-yes | ${package_manager} -Sy --noconfirm --answerclean=All --answerdiff=None --answeredit=None -S \
+yes | ${package_manager} --sudoloop -Sy --noconfirm --answerclean=All --answerdiff=None --answeredit=None -S \
     linux \
     selinux-refpolicy-arch \
     selinux-gui
