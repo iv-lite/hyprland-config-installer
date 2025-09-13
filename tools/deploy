@@ -13,6 +13,8 @@ for configuration in ${configurations[*]}; do
     deploy $configuration
 done
 
+sudo sed -i -e 's/#fr_CH.UTF-8 UTF-8/fr_CH.UTF-8 UTF-8/g' /etc/locale.gen
+sudo locale-gen
 sudo localectl set-keymap --no-convert fr_CH
 
 xdg-mime default org.gnome.Nautilus.desktop inode/directory
