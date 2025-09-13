@@ -96,7 +96,7 @@ yes | ${package_manager} --sudoloop --noconfirm -S \
 # Enabling SELinux LSM
 echo "Making sure SELinux boots at start"
 sudo cp -r ${basedir}/../etc/modules-load.d/config-lsm.conf /etc/modules-load.d/
-mkinitcpio -p linux
+sudo mkinitcpio -p linux
 
 # Maintaining context
 echo "Enabling context service"
