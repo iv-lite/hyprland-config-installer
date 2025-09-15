@@ -24,12 +24,13 @@
     "custom/power"
   ],
   "hyprland/workspaces": {
+    "icon-size": 21,
     "format": "{icon}",
     "format-icons": {
-      "active": "",
-      "visible": "",
-      "default": "⬤",
-      "empty": "◯"
+      "active": "◉",
+      "visible": "◉",
+      "default": "●",
+      "empty": "○"
     },
     "persistent-workspaces": {
       "*": 6
@@ -82,7 +83,7 @@
     }
   },
   "tray": {
-    // "icon-size": 21,
+    "icon-size": 21,
     "spacing": 10
   },
   "bluetooth": {
@@ -117,8 +118,7 @@
     "critical-threshold": 80,
     "format": "{temperatureC}°C {icon}",
     "format-icons": [
-      "",
-      ""
+      ""
     ]
   },
   "disk": {
