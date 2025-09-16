@@ -1,5 +1,5 @@
+theme = nord
 background = 2b303b
-background-opacity = 0.8 
 foreground = ffffff
 
 font-family = "Roboto Mono"
@@ -8,5 +8,5 @@ mouse-hide-while-typing = true
 window-padding-x = 2
 window-padding-y = 2
 window-padding-balance = true
-
-theme = Andromeda
+gtk-titlebar = false
+gtk-adwaita = false
