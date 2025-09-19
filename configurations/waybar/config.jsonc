@@ -26,10 +26,10 @@
   "hyprland/workspaces": {
     "format": "{icon}",
     "format-icons": {
-      "active": "▣",
-      "visible": "▣",
-      "default": "■",
-      "empty": "□"
+      "active": "⊙",
+      "visible": "⊙",
+      "default": "●",
+      "empty": "○"
     },
     "persistent-workspaces": {
       "*": 6
