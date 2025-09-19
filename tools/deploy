@@ -17,6 +17,8 @@ sudo sed -i -e 's/#fr_CH.UTF-8 UTF-8/fr_CH.UTF-8 UTF-8/g' /etc/locale.gen
 sudo locale-gen
 sudo localectl set-keymap --no-convert fr_CH
 
+sed -i -e ':a;N;$!ba;s/\n}/,\n\t"password-store": "gnome-libsecret"\n}/g' $HOME/.vscode/argv.json
+
 xdg-mime default org.gnome.Nautilus.desktop inode/directory
 xdg-mime default org.gnome.Nautilus.desktop x-directory/normal
 xdg-mime default org.gnome.Nautilus.desktop x-directory/gnome-default-handler
