@@ -44,6 +44,10 @@ button:hover {
     padding: 0;
 }
 
+#workspaces label {
+    font-size: 2rem;
+}
+
 #workspaces button {
     margin: 0;
     padding: 0;

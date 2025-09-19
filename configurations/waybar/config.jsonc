@@ -24,13 +24,12 @@
     "custom/power"
   ],
   "hyprland/workspaces": {
-    "icon-size": 21,
     "format": "{icon}",
     "format-icons": {
-      "active": "◉",
-      "visible": "◉",
-      "default": "●",
-      "empty": "○"
+      "active": "▣",
+      "visible": "▣",
+      "default": "■",
+      "empty": "□"
     },
     "persistent-workspaces": {
       "*": 6
