@@ -1,0 +1,19 @@
+configuration {
+  modes: [ combi ];
+  combi-modes: [ window, drun, run, calc ];
+  combi-display-format: "{text}";
+  fixed-num-lines: false;
+  lines: 2;
+  history: false;
+  show-icons: true;
+  icon-theme: "Qogir-Dark";
+  timeout {
+      action: "kb-cancel";
+      delay:  0;
+  }
+  filebrowser {
+      directories-first: true;
+      sorting-method:    "name";
+  }
+}
+@theme "nord"

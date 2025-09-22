@@ -90,9 +90,7 @@ listview {
     border-color: @nord10;
     border: 0px 3px 3px 3px;
     background-color: #2e3440;
-    dynamic: false;
-
-	lines: 6;
+    dynamic: true;
 }
 
 element {

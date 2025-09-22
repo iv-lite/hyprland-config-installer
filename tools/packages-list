@@ -36,6 +36,7 @@ export packages="\
     foot \
     bluez \
     bluez-utils \
+    blueman \
     blueberry \
     polkit \
     polkit-gnome \
@@ -48,6 +49,8 @@ export packages="\
     cliphist \
     logiops \
     wofi \
+    rofi \
+    rofi-calc \
     tofi \
     ghostty \
     nautilus \
@@ -62,6 +65,7 @@ export packages="\
     cpio \
     cliphist \
     arc-gtk-theme \
+    qogir-icon-theme \
     papirus-icon-theme \
     waybar \
     glib2-devel \

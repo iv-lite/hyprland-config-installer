@@ -20,7 +20,6 @@
     "pulseaudio#audio",
     "battery",
     "tray",
-    "bluetooth",
     "custom/power"
   ],
   "hyprland/workspaces": {
