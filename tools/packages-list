@@ -64,7 +64,7 @@ export packages="\
     meson \
     cpio \
     cliphist \
-    arc-gtk-theme \
+    qogir-gtk-theme \
     qogir-icon-theme \
     papirus-icon-theme \
     waybar \

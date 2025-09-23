@@ -14,10 +14,10 @@ cursor_theme_name = "Adwaita"
 font_name = "Roboto Mono"
 
 # Icon theme name
-icon_theme_name = "Papirus-Dark"
+icon_theme_name = "Qogir-Dark"
 
 # GTK theme name
-theme_name = "Arc-Dark"
+theme_name = "Qogir-Round-Dark"
 
 [commands]
 reboot = ["systemctl", "reboot"]
