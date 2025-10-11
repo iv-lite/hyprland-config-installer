@@ -13,7 +13,7 @@ export packages="\
     uwsm \
     dbus-broker \
     wayland-pipewire-idle-inhibit \
-    hyprland-git \
+    hyprland \
     hypridle \
     hyprlock \
     hyprpaper \
