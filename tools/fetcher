@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 cd "$(dirname ${BASH_SOURCE[0]})"
+basedir="$(pwd)"
 
 . ./package-manager
 
@@ -15,12 +16,12 @@ if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]; then
 fi
 
 echo "Installing default packages"
-. ./packages-list
+. ${basedir}/packages-list
 ${package_manager} --noconfirm -S $packages
 
 read -r -p "Do you want to enable amdgpu hardware audio/video decoding ? [y/N] " response
 if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]; then
-    . ./amd-va-packages-list
+    . ${basedir}/amd-va-packages-list
     ${package_manager} --noconfirm -S $amd_va_packages
     echo "Hardware Audio/Video acceleration enabled !"
 fi
