@@ -6,6 +6,8 @@ export packages="\
     linux-firmware \
     mkinitcpio-firmware \
     ddcci-driver-linux-dkms \
+    zsh \
+    vim \
     nftables \
     jq \
     pamixer \
