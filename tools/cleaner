@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 cd "$(dirname ${BASH_SOURCE[0]})"
+basedir="$(pwd)"
 
 configurations=($(ls ../configurations))
 
@@ -25,6 +26,6 @@ if [ -f /etc/modules-load.d/ddcci_backlight.conf ]; then
     echo "ddcci_backlight kernel module removed"
 fi
 
-. ./package-manager
-. ./packages-list
+. ${basedir}/package-manager
+. ${basedir}/packages-list
 ${package_manager} -Rns --noconfirm $packages

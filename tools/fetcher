@@ -3,7 +3,7 @@
 cd "$(dirname ${BASH_SOURCE[0]})"
 basedir="$(pwd)"
 
-. ./package-manager
+. ${basedir}/package-manager
 
 read -r -p "Do you want to enable the firewall ? [y/N] " response
 if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]; then
